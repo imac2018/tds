@@ -29,6 +29,7 @@ Bien sûr, il y a plus de détails à connaître mais globalement ça c'est suff
 
 ## Convention de nommage
 Y'en a pas, on s'en fout.
+Mais nommage conseillé pour pas foutre le bordel ^^ : <nom_cours>/<nom_td>/<nom|surnom>/<file>
   
 ## Précautions
 La taille max. du dépôt est 1 Go.  
