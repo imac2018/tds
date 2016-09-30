@@ -1,5 +1,3 @@
-//Télécharger la dernière version stable de Eigen;
-//Extraire l'archive, et renommer le dossier obtenu en 'eigen'
 //Compiler avec :
 //    g++ -Wall -I../../eigen eigenSample -o eigenSample.out
 
