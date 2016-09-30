@@ -1,5 +1,5 @@
-# TDs
-Un dépôt pour nos codes sources liés aux TDs.  
+# TD's
+Un dépôt pour nos codes sources liés aux TDs.
 Hashtag Math, POO, Signal et (soon ?) OpenGL.
 
 ## Pourquoi ?
@@ -10,10 +10,10 @@ Hashtag Math, POO, Signal et (soon ?) OpenGL.
 - Allez viens, on est bien !
 
 ## Comment c'est que ça marche ? (Git débutant)
-Mets-toi dans le dossier de ton choix: la commande suivante va cloner le dépôt dans un nouveau sous-dossier `tds`.  
+Mets-toi dans le dossier de ton choix: la commande suivante va cloner le dépôt dans un nouveau sous-dossier `tds`.
 - `git clone https://github.com/imac2018/tds`
 - `cd tds`
-Et en fait, dès que tu commences/reprend un TD, tu crées le sous-dossier approprié à ton nom, et tu bosses directement dedans.  
+Et en fait, dès que tu commences/reprend un TD, tu crées le sous-dossier approprié à ton nom, et tu bosses directement dedans.
 
 Au début de chaque séance, tu ferais :
 - `cd <le_dossier_tds>`
@@ -31,15 +31,15 @@ Bien sûr, il y a plus de détails à connaître mais globalement ça c'est suff
 Y'en a pas, on s'en fout.
 
 Mais nommage conseillé pour pas foutre le bordel ^^ : `<nom_cours>/<nom_td>/<nom|surnom>/<file>`
-  
+
 ## Précautions
-La taille max. du dépôt est 1 Go.  
-C'est fait pour contenir du code source, **et surtout pas** des images, de l'audio etc.  
+La taille max. du dépôt est 1 Go.
+C'est fait pour contenir du code source, **et surtout pas** des images, de l'audio etc.
 
-Si ton fichier est léger ça passe. Mais s'il est lourd, faut pas encombrer le dépôt avec.  
-Crées donc un fichier `.gitignore` dans ton dossier et écris-y chaque fichier qui doit être ignoré par Git, dans ce dossier là.  
+Si ton fichier est léger ça passe. Mais s'il est lourd, faut pas encombrer le dépôt avec.
+Crées donc un fichier `.gitignore` dans ton dossier et écris-y chaque fichier qui doit être ignoré par Git, dans ce dossier là.
 
-Tu peux insérer des "wildcards" (jokers), genre :  
+Tu peux insérer des "wildcards" (jokers), genre :
 ```.gitignore
 cape.png  # Ignorer cape.png (duh!)
 *.png     # Ignorer tous les fichiers qui finissent par png juste ici.
