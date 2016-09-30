@@ -2,7 +2,7 @@
 Un dépôt pour nos codes sources liés aux TDs.
 
 ## Pourquoi ?
-- Finir des TDs à la maison, sans devoir s'envoyer ses propres fichiers à chaque fois;
+- Pouvoir finir ses TDs à la maison, sans devoir s'envoyer ses propres fichiers à chaque fois;
 - Pouvoir directement partager du code, sans besoin de Mail ou Facebook;
 - Ca offre des pistes à ceux qui sont moins à l'aise, et ça reste pratique pour les autres;
 - Apprendre (un peu) Git.
