@@ -1,5 +1,5 @@
 # TD's
-Un dépôt pour nos codes sources liés aux TDs.
+Un dépôt pour nos codes sources liés aux TDs.  
 Hashtag Math, POO, Signal et (soon ?) OpenGL.
 
 ## Pourquoi ?
@@ -8,6 +8,12 @@ Hashtag Math, POO, Signal et (soon ?) OpenGL.
 - Ca offre des pistes à ceux qui sont moins à l'aise, et ça reste pratique pour les autres;
 - Apprendre (un peu) Git.
 - Allez viens, on est bien !
+
+## Au menu
+- Comment c'est que ça marche ? (Git débutant)
+- Convention de nommage
+- Précautions
+- Trucs cool à faire
 
 ## Comment c'est que ça marche ? (Git débutant)
 Mets-toi dans le dossier de ton choix: la commande suivante va cloner le dépôt dans un nouveau sous-dossier `tds`.
