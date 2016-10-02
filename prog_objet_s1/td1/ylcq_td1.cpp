@@ -176,6 +176,8 @@ class Polygon2Df {
 private:
     std::vector<Vertex2Df> vertices; // Le premier sommet est aussi le dernier.
 public:
+    // XXX Cette fonction pré-suppose que notre polygone est convexe.
+    //     Les angles concaves seront erronés. Je compte pas changer ça.
     std::vector<float> getInnerAnglesList() { 
         std::vector<float> angles;
         const size_t v_count = vertices.size();
