@@ -1,23 +1,30 @@
 // Fichtre, il était gros pour un 1er TD !
 //
 // Compiler avec :
-//     g++ -Wall -std=c++11 ylcq_td1.cpp
+//     g++ -Wall -pedantic -std=c++11 ylcq_td1.cpp
 // Puis:
 //     ./a.out
 //
 // Normalement y'a pas besoin de C++11, c'est juste que
 // j'utilise une feature qui permet à Vector2Df d'hériter
 // des constucteurs de sa classe parent, Point2Df.
+//
+// -pedantic est pour être sûr que le code est conforme à ISO C++.
+// Parce que franchement, vers la fin, j'étais plus sûr du tout.
+
+
 
 #include <iostream>// std::cout, etc.
 #include <complex> // std::complex<>, std::polar()
 #include <cmath>   // sqrtf(), etc.
-#include <cstdlib> // EXIT_SUCCESS
+#include <cstdlib> // EXIT_SUCCESS, sleep()
 #include <vector>  // std::vector<>
 #include <string>  // std::string
 
-// M_PI n'est pas standard, ni un float.
+
+// M_PI n'est ni standard, ni un float.
 const float PI_F = acosf(-1.f);
+
 
 // Un truc tout pourri et discriminatoire des autres pays
 class Address {
@@ -25,6 +32,8 @@ private:
     unsigned postalCode;
     std::string street;
 public:
+    Address() {}
+    ~Address() {}
     void        setStreet(std::string s)  { street = s; }
     std::string getStreet()     const     { return street; }
     void        setPostalCode(unsigned p) { postalCode = p; }
@@ -71,11 +80,13 @@ public:
     //     Point2Df baz(0.5f*cosf(PI_F/3.f), 0.5f*sinf(PI_F/3.f));
     //     Point2Df qux(std::polar(0.5f, PI_F/3.f));
     //
+    Point2Df() {}
     Point2Df(float x, float y) : x(x), y(y) {}
     Point2Df(std::complex<float> cmplx) {
         x = std::abs(cmplx)*cosf(std::arg(cmplx));
         y = std::abs(cmplx)*sinf(std::arg(cmplx));
     }
+    ~Point2Df() {}
     void  printCartesian() const { std::cout << "{ x: " << x << ", y: " << y << " }"; }
     void  print()          const { printCartesian(); }
     void  printPolar()     const { /* TODO, mais au final c'est pas demandé. */ }
@@ -93,6 +104,8 @@ public:
     void operator+=(const Point2Df &p) { translate(p.x, p.y); }
 };
 
+
+
 // 5. Vector doit hériter de Point.
 class Vector2Df : public Point2Df {
     // float x,y; 
@@ -101,6 +114,7 @@ class Vector2Df : public Point2Df {
 public:
     // C++11: Hériter des constructeurs de la classe parent.
     // Sans C++11, il faudrait manuellement réécrire un constructeur.
+    //
     using Point2Df::Point2Df; 
 
     // Il demande "scalar product", mais le nom "dot product" est simplement plus répandu.
@@ -122,10 +136,13 @@ public:
 };
 
 
+
 class LineSegment2Df {
 private:
     Point2Df a, b;
 public:
+     LineSegment2Df() {}
+    ~LineSegment2Df() {}
     Point2Df getA()      const { return a; }
     Point2Df getB()      const { return b; }
     void     setA(Point2Df aa) { a = aa; }
@@ -138,37 +155,87 @@ public:
     }
 };
 
-class Circle2Df {
+
+// Il est demandé une classe abstraite GeoObject.
+// On dit d'une classe qu'elle est abstraite quand elle est trop générale
+// pour être instanciée telle quelle. En d'autres termes, on ne veut pas
+// pouvoir l'instancier, mais seulement en hériter.
+//
+// Dans la suite de ce commentaire, entendez 'méthode' comme
+// 'méthode ou destructeur'.
+//
+// La clé ici, c'est le destructeur virtuel :
+//     virtual ~GeoObject2Df();
+// 'virtual' est un qualificateur de méthode qui indique que celle-ci *devrait*
+// être implémentée par toute classe fille (mais pas forcément).
+// En pratique, c'est implémenté par un pointeur de fonction. Ca veut dire deux
+// choses :
+// - Chaque instance de votre objet pèse de 32 à 64 bits de plus par 
+//   fonction virtuelle (la taille d'un pointeur);
+// - Quand vous appelez une méthode dont la méthode héritée est 'virtual',
+//   le code à appeler dépend de ce pointeur. C'est mauvais pour certaines
+//   raison, en autres que le cache d'instructions du CPU n'aime pas trop ça.
+//
+// Dans la mesure du possible, il faut donc éviter d'avoir à qualifier 
+// des méthodes de 'virtual' (ça signifie immédiatement d'éviter l'héritage).
+//
+// le '= 0' après une méthode 'virtual' sert à indiquer que c'est une méthode
+// 'virtual pure'. En gros, ça force toute classe fille à implémenter cette
+// méthode.
+class GeoObject2Df {
+public:
+    virtual ~GeoObject2Df(){}; //Destructeur
+    virtual float getPerimeter() const = 0;
+    virtual float getArea()      const = 0;
+    virtual void  print()        const = 0;
+};
+
+// Le '#if 0 ... #endif' fait que tout texte entre les deux est ignoré.
+// Pour savoir pourquoi, réviser le cours sur les phases de compilation en C.
+// Si vous remplacez par '#if 1' vous verrez l'erreur de compilation.
+#if 0
+GeoObject2Df caNeCompileraPasEtTantMieuxCarCestUneClasseAbstraite;
+#endif
+
+
+class Circle2Df : public GeoObject2Df {
 private:
     Point2Df center;
     float radius;
 public:
+    Circle2Df(){}
+    ~Circle2Df(){}
     float getDiameter()  const { return 2.f*radius; }
     float getRadius()    const { return radius; }
-    float getPerimeter() const { return 2.f*M_PI*radius; }
-    float getArea()      const { return M_PI*radius*radius; }
+    float getPerimeter() const { return 2.f*PI_F*radius; }
+    float getArea()      const { return PI_F*radius*radius; }
     void  print()        const {
         std::cout << "{ center: "; center.print();
         std::cout << ", radius: " << radius << " }";
     }
 };
 
-class Rectangle2Df {
+class Rectangle2Df : public GeoObject2Df {
 private:
     Point2Df center;
     Vector2Df size;
     float rotation; // Ce n'est pas demandé, mais je trouve que ça a du sens.
                     // Sinon, ça serait une AABB (Axis-Aligned Bounding Box).
 public:
+    Rectangle2Df() {}
+    ~Rectangle2Df() {}
     float getArea()      const { return size.getX()*size.getY(); }
     float getPerimeter() const { return 2.f*(size.getX() + size.getY()); }
     float getDiagonal()  const { return size.getLength(); }
-    void print()         const {
+    void  print()        const {
         std::cout << "{ center: "; center.print();
         std::cout << ", size: "; size.print();
         std::cout << ", rotation: " << rotation << " }";
     }
 };
+
+
+
 
 typedef Point2Df Vertex2Df;
 
@@ -176,6 +243,8 @@ class Polygon2Df {
 private:
     std::vector<Vertex2Df> vertices; // Le premier sommet est aussi le dernier.
 public:
+    Polygon2Df() {}
+    ~Polygon2Df() {}
     // XXX Cette fonction pré-suppose que notre polygone est convexe.
     //     Les angles concaves seront erronés. Je compte pas changer ça.
     std::vector<float> getInnerAnglesList() { 
@@ -220,9 +289,79 @@ public:
     }
 };
 
+
+
+// 7. class vs. struct !
+
+struct Comestible {
+private: // Tiens, on a le droit de mettre private ici ??
+    unsigned hp;
+public:
+    // Et des constructeurs et destructeurs ??
+    Comestible() {}
+    Comestible(unsigned hp) : hp(hp) {}
+    virtual ~Comestible() {}
+    // Whoops, méthodes virtuelles ??
+    virtual void getEatenBy(Comestible &c) const {
+        std::cout << "NOOOOOOOO" << std::endl;
+    }
+    // Virtuelles pures ??
+    virtual void print() const = 0;
+};
+
+struct Dinosaur : public Comestible { // omfg on peut hériter d'une struct
+private:
+    unsigned hp, stamina;
+public:
+    // Des membres static ??
+    // Ca devient embarassant...
+    static const unsigned HP_REGEN = 200;
+    static const unsigned STAMINA_REGEN = 500;
+    // Ah bah tiens ! Des méthodes dans une struct !
+    bool eat(Comestible &c) { 
+        //c.hp -= 1000; // On peut pas toucher, c'est private !
+        hp += HP_REGEN;
+        stamina += STAMINA_REGEN;
+        c.getEatenBy(*this);
+        return true; 
+    }
+    void sleep() { 
+        std::cout << "ZZZZzzzz (dinosaur's sleeping.)" << std::endl; 
+    }
+    void print() const { 
+        std::cout << "Yep, that's a legit dinosaur." << std::endl; 
+    }
+};
+
+static Dinosaur paris;         // #DinosaurKing
+static struct Dinosaur denver; // Le dernier diiinosaaaaure ! 
+                               // C'est mon ami et bien plus encore !
+static Circle2Df cercleDeSatan;
+static class Circle2Df jeSaisPas;
+// Ah bah en fait on peut instancier des structs ou class en les préfixant
+// par ces mots-clés. Ehhh...
+
+
+// Et ça ? (edit: putain sérieux ça passe ça ?? Mais c'est quoi ce langage ?)
+static struct Circle2Df blaspheme;
+static class Dinosaur whatTheFckOmfg;
+
+
+template <class T> void print_obj(T t) { t.print(); }
+// Ahah ! La ligne suivante ne compile pas ! C'est une différence !
+// template <struct T> void template_toast_struct(T t) {}
+
+static void inutile() {
+    print_obj<Circle2Df>(cercleDeSatan);
+    print_obj<Dinosaur>(denver);
+}
+
+// Au final j'ai pas pu résister à chercher sur Google :
+// La seule différence, à part la dernière ci-dessus, c'est que la visibilité
+// par défaut des membres dans une struct est 'public' (vs 'private' pour 
+// une class).
+
 int main(void) {
-    std::cout 
-        << "Quoi, t'as vraiment cru que j'allais tester toutes mes fonctions ? x)" 
-        << std::endl;
+    inutile();
     return EXIT_SUCCESS;
 }
