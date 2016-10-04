@@ -1,7 +1,5 @@
-// Fichtre, il était gros pour un 1er TD !
-//
 // Compiler avec :
-//     g++ -Wall -pedantic -std=c++11 ylcq_td1.cpp
+//     g++ -Wall -pedantic -std=c++11 ylcq_td1_td2.cpp
 // Puis:
 //     ./a.out
 //
@@ -17,7 +15,7 @@
 #include <iostream>// std::cout, etc.
 #include <complex> // std::complex<>, std::polar()
 #include <cmath>   // sqrtf(), etc.
-#include <cstdlib> // EXIT_SUCCESS, sleep()
+#include <cstdlib> // EXIT_SUCCESS, malloc/free()
 #include <vector>  // std::vector<>
 #include <string>  // std::string
 
@@ -34,8 +32,8 @@ private:
 public:
     Address() {}
     ~Address() {}
-    void        setStreet(std::string s)  { street = s; }
-    std::string getStreet()     const     { return street; }
+    void        setStreet(const std::string &s)  { street = s; }
+    const std::string& getStreet()     const     { return street; }
     void        setPostalCode(unsigned p) { postalCode = p; }
     unsigned    getPostalCode() const     { return postalCode; }
 };
@@ -48,18 +46,18 @@ private:
 public:
     Person() {}
     ~Person() {}
-    void        setName(std::string val) { name = val; }
-    std::string getName()        const   { return name; }
-    void        setAge(unsigned val)     { age = val; }
-    unsigned    getAge()         const   { return age; }
-    void        setHeigth(unsigned val)  { height = val; }
-    unsigned    getHeigth()      const   { return height; }
-    void        setAddress(Address a)    { address = a; }
-    Address     getAddress(void) const   { return address; }
-    void        printName()      const   { std::cout <<   name << std::endl; }
-    void        printAge()       const   { std::cout <<    age << std::endl; }
-    void        printHeight()    const   { std::cout << height << std::endl; }
-    void        print()          const   { printName(); printAge(); printHeight(); }
+    void        setName(const std::string &name) { this->name = name; }
+    const std::string& getName()           const { return name; }
+    void        setAge(unsigned val)      { age = val; }
+    unsigned    getAge()            const { return age; }
+    void        setHeigth(unsigned val)   { height = val; }
+    unsigned    getHeigth()         const { return height; }
+    void        setAddress(const Address &a)     { address = a; }
+    const Address& getAddress(void)    const { return address; }
+    void        printName()         const { std::cout <<   name << std::endl; }
+    void        printAge()          const { std::cout <<    age << std::endl; }
+    void        printHeight()       const { std::cout << height << std::endl; }
+    void        print()             const { printName(); printAge(); printHeight(); }
 };
 
 
@@ -67,6 +65,7 @@ public:
 class Point2Df {
 protected: // comme private, mais aussi accessible par les sous-classes.
     float x,y;
+    static unsigned num;
 public:
     // Construire un Point2Df avec des coordonnées cartésiennes :
     //     Point2Df bar(0.f, 2.f);
@@ -80,14 +79,16 @@ public:
     //     Point2Df baz(0.5f*cosf(PI_F/3.f), 0.5f*sinf(PI_F/3.f));
     //     Point2Df qux(std::polar(0.5f, PI_F/3.f));
     //
-    Point2Df() {}
-    Point2Df(float x, float y) : x(x), y(y) {}
+    Point2Df() { ++num; }
+    Point2Df(float x, float y) : x(x), y(y) { ++num; }
     Point2Df(std::complex<float> cmplx) {
         x = std::abs(cmplx)*cosf(std::arg(cmplx));
         y = std::abs(cmplx)*sinf(std::arg(cmplx));
+        ++num;
     }
-    ~Point2Df() {}
-    void  printCartesian() const { std::cout << "{ x: " << x << ", y: " << y << " }"; }
+    ~Point2Df() { --num; }
+    unsigned getTotalCount() const { return num; }
+    void  printCartesian() const { std::cout << "{ x: " << x << ", y: " << y << " }" << std::endl; }
     void  print()          const { printCartesian(); }
     void  printPolar()     const { /* TODO, mais au final c'est pas demandé. */ }
     float getX()           const { return x; }
@@ -104,6 +105,9 @@ public:
     void operator+=(const Point2Df &p) { translate(p.x, p.y); }
 };
 
+
+// Ne pas oublier ça !
+unsigned Point2Df::num = 0;
 
 
 // 5. Vector doit hériter de Point.
@@ -145,13 +149,13 @@ public:
     ~LineSegment2Df() {}
     Point2Df getA()      const { return a; }
     Point2Df getB()      const { return b; }
-    void     setA(Point2Df aa) { a = aa; }
-    void     setB(Point2Df bb) { b = bb; }
+    void     setA(const Point2Df &aa) { a = aa; }
+    void     setB(const Point2Df &bb) { b = bb; }
     float    getLength() const { return a.distanceFrom(b); }
     void     print()     const { 
         std::cout << "{ a: "; a.print();
         std::cout << ",  b: "; b.print();
-        std::cout << " }";
+        std::cout << " }" << std::endl;
     }
 };
 
@@ -183,12 +187,18 @@ public:
 // 'virtual pure'. En gros, ça force toute classe fille à implémenter cette
 // méthode.
 class GeoObject2Df {
+private:
+    static unsigned num;
 public:
-    virtual ~GeoObject2Df(){}; //Destructeur
+    GeoObject2Df()           { ++num; }
+    virtual ~GeoObject2Df()  { --num; } //Destructeur
+    unsigned getTotalCount()     const { return num; }
     virtual float getPerimeter() const = 0;
     virtual float getArea()      const = 0;
     virtual void  print()        const = 0;
 };
+
+unsigned GeoObject2Df::num = 0;
 
 // Le '#if 0 ... #endif' fait que tout texte entre les deux est ignoré.
 // Pour savoir pourquoi, réviser le cours sur les phases de compilation en C.
@@ -197,6 +207,10 @@ public:
 GeoObject2Df caNeCompileraPasEtTantMieuxCarCestUneClasseAbstraite;
 #endif
 
+static void print(const GeoObject2Df &obj) {
+    obj.print(); // Wow, cette fonction appelle la plus spécialisée !
+    //obj.getRadius(); //non, on peut pas
+}
 
 class Circle2Df : public GeoObject2Df {
 private:
@@ -211,7 +225,7 @@ public:
     float getArea()      const { return PI_F*radius*radius; }
     void  print()        const {
         std::cout << "{ center: "; center.print();
-        std::cout << ", radius: " << radius << " }";
+        std::cout << ", radius: " << radius << " }" << std::endl;
     }
 };
 
@@ -230,9 +244,29 @@ public:
     void  print()        const {
         std::cout << "{ center: "; center.print();
         std::cout << ", size: "; size.print();
-        std::cout << ", rotation: " << rotation << " }";
+        std::cout << ", rotation: " << rotation << " }" << std::endl;
     }
 };
+
+
+static void test_geoobj_count_helper(void) {
+    static const size_t c_cnt = 4, r_cnt = 8;
+    Circle2Df circs[c_cnt];
+    Rectangle2Df rects[r_cnt];
+    std::cout << "   Circle count : " << circs[0].getTotalCount() << "(was " << c_cnt << ")" << std::endl;
+    std::cout << "Rectangle count : " << rects[0].getTotalCount() << "(was " << r_cnt << ")" << std::endl;
+}
+
+static void test_geoobj_count(void) {
+    static const size_t c_cnt = 3, r_cnt = 7;
+    Circle2Df circs[c_cnt];
+    Rectangle2Df rects[r_cnt];
+    std::cout << "   Circle count : " << circs[0].getTotalCount() << "(was " << c_cnt << ")" << std::endl;
+    std::cout << "Rectangle count : " << rects[0].getTotalCount() << "(was " << r_cnt << ")" << std::endl;
+    test_geoobj_count_helper();
+    std::cout << "   Circle count : " << circs[0].getTotalCount() << "(was " << c_cnt << ")" << std::endl;
+    std::cout << "Rectangle count : " << rects[0].getTotalCount() << "(was " << r_cnt << ")" << std::endl;
+}
 
 
 
@@ -247,7 +281,7 @@ public:
     ~Polygon2Df() {}
     // XXX Cette fonction pré-suppose que notre polygone est convexe.
     //     Les angles concaves seront erronés. Je compte pas changer ça.
-    std::vector<float> getInnerAnglesList() { 
+    const std::vector<float> getInnerAnglesList() { 
         std::vector<float> angles;
         const size_t v_count = vertices.size();
         for(size_t i=0 ; i<v_count ; ++i) {
@@ -285,10 +319,21 @@ public:
         for(i=0 ; i<vertices.size()-1 ; ++i)
             std::cout << "v" << i << ": ", vertices[i].print(), std::cout << ", ";
         std::cout << "v" << i << ": ", vertices[i].print();
-        std::cout << "}";
+        std::cout << "}" << std::endl;
     }
 };
 
+class DynamicPolygon2Df {
+private:
+    Vertex2Df *vertices;
+public:
+    DynamicPolygon2Df(size_t count) { 
+        vertices = (Vector2Df*) malloc(count*sizeof *vertices); 
+        //Equivalent : vertices = (Vector2Df*) malloc(count*sizeof(Vector2Df)); 
+        // XXX Vérifier si l'appel a réussi, donc que vertices != NULL.
+    }
+    ~DynamicPolygon2Df()            { free(vertices); }
+};
 
 
 // 7. class vs. struct !
@@ -353,6 +398,8 @@ template <class T> void print_obj(T t) { t.print(); }
 
 static void inutile() {
     print_obj<Circle2Df>(cercleDeSatan);
+    print_obj<Circle2Df>(jeSaisPas);
+    print_obj<Circle2Df>(blaspheme);
     print_obj<Dinosaur>(denver);
 }
 
@@ -363,5 +410,8 @@ static void inutile() {
 
 int main(void) {
     inutile();
+    test_geoobj_count();
+    print(Circle2Df());
+    print(Rectangle2Df());
     return EXIT_SUCCESS;
 }
