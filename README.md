@@ -1,6 +1,6 @@
 # TD's
 Un dépôt pour nos codes sources liés aux TDs.  
-Hashtag Math, POO, Signal et (soon ?) OpenGL.
+Hashtag Math, POO, Signal et OpenGL.
 
 ## Pourquoi ?
 - Pouvoir finir ses TDs à la maison, sans devoir s'envoyer ses propres fichiers à chaque fois;
