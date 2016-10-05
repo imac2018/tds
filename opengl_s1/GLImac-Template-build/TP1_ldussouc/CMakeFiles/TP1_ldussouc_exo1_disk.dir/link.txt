@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.o  -o TP1_ldussouc_exo1_disk -rdynamic ../glimac/libglimac.a -Wl,-Bstatic -lSDLmain -Wl,-Bdynamic -lSDL -lpthread /usr/lib/x86_64-linux-gnu/libGL.so.1 -lGLEW 

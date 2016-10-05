@@ -1,0 +1,4 @@
+/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir
+/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir
+/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir
+/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/glimac/CMakeFiles/glimac.dir
