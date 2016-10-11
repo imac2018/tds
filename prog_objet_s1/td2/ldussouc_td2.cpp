@@ -1,3 +1,6 @@
+// Is this TD finished yet ?
+// NO !
+
 #include <iostream>
 #include <string>
 
@@ -12,6 +15,7 @@ class Point : GeoObject {
 private:
   double x;
   double y;
+  std::string name;
 public:
   static unsigned int num;
 
@@ -28,9 +32,17 @@ public:
   }
   static double distance (const Point & p1, const Point & p2){
     double distance;
-    distance = x - point2.x / y - point2.y;
+    distance = p1.x - p2.x / p1.y - p2.y;
     std::cout << distance << std::endl;
-
+  }
+  double getX() const{
+    return x;
+  }
+  double getY() const{
+    return Y;
+  }
+  void changeName(std::string name){
+    this.name = name;
   }
 };
 
