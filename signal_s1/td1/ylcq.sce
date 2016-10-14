@@ -35,9 +35,25 @@ function ret = tfXe(f)
     ret = somme/Te
 endfunction
 
-subplot(221); e=120; Te=1/e; f=-e/2:e/2; title(string(e)+"Hz"); plot(tfXe(f));
-subplot(222); e=70;  Te=1/e; f=-e/2:e/2; title(string(e)+"Hz"); plot(tfXe(f));
-subplot(223); e=30;  Te=1/e; f=-e/2:e/2; title(string(e)+"Hz"); plot(tfXe(f));
+subplot(311); 
+e=120; Te=1/e; f=(-e):e; plot(tfXe(f), "r");
+e=30;  Te=1/e; f=(-e):e; plot(tfXe(f), "m");
+e=70;  Te=1/e; f=(-e):e; plot(tfXe(f), "b");
 
 // Ex 4.
+subplot(312);
+plot(tfx(f), "r");
+plot(Te*tfXe(f), "b");
 
+function ret = tfXe_passebas(f)
+    somme = 0
+    for n=-10:10
+        idx  = find(tfx(f-n/Te) < 1/(2*Te))
+        somme = somme + tfx(idx) //tfx(f-n/Te)
+    end
+    ret = somme/Te
+endfunction
+
+subplot(313);
+plot(tfx(f), "r");
+plot(Te*tfXe_passebas(f), "b");
