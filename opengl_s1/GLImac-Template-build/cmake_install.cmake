@@ -1,4 +1,4 @@
-# Install script for directory: /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template
+# Install script for directory: /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,8 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/glimac/cmake_install.cmake")
-  include("/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/cmake_install.cmake")
+  include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/glimac/cmake_install.cmake")
+  include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/cmake_install.cmake")
+  include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/cmake_install.cmake")
 
 endif()
 
@@ -45,7 +46,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()
