@@ -106,8 +106,8 @@ public:
   }
 
 
-  //Methods Tracks
 
+  //Methods Tracks
   void addTrack(Track track)
   {
     tracks.push_back(track);
@@ -153,10 +153,40 @@ public:
       std::cout << artists[i].getName() <<" - " << artists[i].getGenre() << " - " << "Number of tracks : " << artists[i].getTracksSize() <<endl;
   }
 
+  void editArtist(int idArtist){   //faire gaffe, peut etre faire -1 
+    cout << "What do you want to edit piaf ? "<<endl;
+    cout << "(1)  Name  "<< "(2)  Genre  "<< "(3) Year of birth" <<endl;
+    int choice;
+    cin >> choice;
+
+    if (choice == 1){
+      string newName;
+      cout << "Choose a new name "<<endl;
+      cin >> newName;
+      artists[idArtist].editName(newName);
+    }
+    else if (choice == 2){
+      string newGenre;
+      cout << "Choose a new genre "<<endl;
+      cin >> newGenre;
+      artists[idArtist].editGenre(newGenre);
+    }
+    else if (choice == 3){
+      int age;
+      cout << "Choose a new Year of birth "<<endl;
+      cin >> age;
+      artists[idArtist].editYearofbirth(age);
+    }
+
+
+  }
+
+
+
    int menu1() {
 
-   		std::cout << "1.  Open Library      " << "2.  Search Artist    " << "3.  Search Track     " <<endl;
-   		std::cout << "4.  Add a new artist  " << "5.  Add a new track  " << "6.  Save your Library" <<endl;
+   		std::cout << "1.  Open Library      " << "2.  Search Artist      " << "3.  Search Track     " <<endl;
+   		std::cout << "4.  Add a new artist  " << "5.  Save your Library  " << "6. Quit              " <<endl;
 		std::cout << "Choose an option !"<<endl;
 
    	int i;
@@ -165,20 +195,7 @@ public:
    	return i;
    }
 
-   int displayM1(){
 
-   	std::cout <<endl;
-   	std::cout << "Welcome to the Music Library !" <<endl <<endl;
-
-	  int a = menu1();
-
-	while ( a > 6){
-		std::cout << "Choose a possible option please."<<endl;
-	  	a = menu1();
-	}
-	std::cout << endl;
-	return a;
-   }
 
    int menuLib(){
    	for(unsigned int i=0; i<artists.size();i++)
@@ -196,7 +213,9 @@ public:
       return choice;
     }
     else if (choice == 2){
-      std::cout<< "Editing not ready... :(" <<endl;
+      std::cout<< "choose a number corresponding to the wanted artist" <<endl;
+      scanf ("%d",&choice);
+      editArtist(choice);
     }
     else if (choice == 3){
       std::cout<< "Removing not ready... :(" <<endl;
@@ -226,27 +245,48 @@ public:
    }
 
 
-   void displayM2(int i){
-   	int choice;
-   	
-   	if (i == 1){
-   		std::cout << "Your Artists : "<<endl;
-   		choice = menuLib();
-   		menuLib1(choice);
-   	}
-   /*	else if (i == 2)
+   int displayM1(){
+    int loop = 0;
 
-   	else if (i == 3)
+    while (loop == 0){
 
-   	else if (i == 4)
+      std::cout <<endl;
+      std::cout << "Welcome to the Music Library !" <<endl <<endl;
 
-   	else if (i == 5)
+      int choice = menu1();
 
-   	else if (i == 6)*/
+      while ( choice > 6){
+        std::cout << "Choose a possible option please."<<endl;
+          choice = menu1();
+      }
+      std::cout << endl;
 
-   }
+      if (choice == 1){
+        std::cout << "Your Artists : "<<endl;
+        choice = menuLib();
+        menuLib1(choice);
+      }
+      if (choice == 2){
+        std::cout<< "search not ready... :(" <<endl;
+      }
+      if (choice == 3){
+        std::cout<< "search not ready... :(" <<endl;
+      }
+      if (choice == 4){
+        std::cout<< "adding not ready... :(" <<endl;
+      }
+      if (choice == 5){
+        std::cout<< "saving not ready... :(" <<endl;
+      }
+      if (choice == 6){
+        std::cout<< " Good bye ! A Ploutard" << "\n" <<endl; 
+        loop = 1;
+      }
+
+    }
 
 
+  }
 
   // Track & search(string name) {/*you know how to do this...*/}
   // void backup() {/*save to a file*/}
@@ -294,8 +334,8 @@ int main(){
 
   //iggyPop.printTracks();
   //std::cout << iggyPop.getTracksSize() <<endl;
- 	choice = myMusic.displayM1();
-	myMusic.displayM2(choice);
+ 	myMusic.displayM1();
+
 
 
 
