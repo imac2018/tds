@@ -45,15 +45,12 @@ subplot(312);
 plot(tfx(f), "r");
 plot(Te*tfXe(f), "b");
 
-function ret = tfXe_passebas(f)
-    somme = 0
-    for n=-10:10
-        idx  = find(tfx(f-n/Te) < 1/(2*Te))
-        somme = somme + tfx(idx) //tfx(f-n/Te)
-    end
-    ret = somme/Te
+function mask = passebas(f, Te)
+    mask = linspace(1,1,length(f));
+    mask(find(f < -1/(2*Te))) = 0;
+    mask(find(f >  1/(2*Te))) = 0;
 endfunction
 
 subplot(313);
 plot(tfx(f), "r");
-plot(Te*tfXe_passebas(f), "b");
+plot(Te*tfXe(f).*passebas(f, Te), "b");
