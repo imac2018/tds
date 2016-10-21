@@ -42,6 +42,10 @@ for L=1:3
 end
 
 // Ex.3
+function ret = x_chapeau()
+    ret = 0; // TODO !!
+endfunction
+
 function ret = EQM(x, L)
     N = length(x);
     somme = 0;
@@ -50,3 +54,7 @@ function ret = EQM(x, L)
     end
     ret = somme/N;
 endfunction
+
+for L=1:3
+    disp("EQM avec L=" + string(L) + " = " + string(EQM(x,L)));
+end
