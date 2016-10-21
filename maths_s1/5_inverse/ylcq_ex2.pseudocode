@@ -1,0 +1,33 @@
+
+
+triangulariser(A) {
+    boule fou = faux;
+}
+
+det(A) {
+    assert(est_carree(A))
+    pour ligne de A
+        si ligne est nulle
+            renvoyer 0
+    A = triangulariser(A)
+    prod = 1;
+    pour i dans [0, A.n_lignes]
+        pour j dans [0, A.n_colonnes]
+            prod *= A(i,j)
+    renvoyer prod
+}
+
+MarionVila :
+Det = 1
+Pour i=1 ; i<=N ; ++i
+    LigneCourante = i;
+    LigneIMax = Ligne où se trouve le coeff maximal Parmi les lignes i, i+1, ..., N
+    Si tous les coeff = 0 
+        return 0;
+
+    Permuter(LigneIMax, LigneCourante) S LigneIMax != LigneCourante {
+        Det = Det x(-1)
+    }
+    Pour k=i+1 ; k<=N; ++k
+        Annuler(coeff de la ligne k)
+    renvoyer produit des coeff diagonaux x Det
