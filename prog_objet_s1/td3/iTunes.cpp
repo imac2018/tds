@@ -1,6 +1,6 @@
 
 /*
- * DUCOUX ARTHUR - Music Library
+ * DUCOUX ARTHUR, DUSSOUCHAUD LUCAS - Music Library
  */
 
 #include <iostream>
@@ -172,7 +172,7 @@ public:
   }
 
   void printAll(int i){
-    
+
     std::cout << artists[i].getName() <<  " : " <<endl;
     artists[i].printTracks();
 
@@ -187,8 +187,8 @@ public:
       std::cout << artists[i].getName() <<" - " << artists[i].getGenre() << " - " << "Born in " << artists[i].getYearofbirth() << " - Number of tracks : " << artists[i].getTracksSize() <<endl;
   }
 
-  void editArtist(int idArtist){   //faire gaffe, peut etre faire -1 
-    cout << "What do you want to edit piaf ? "<<endl;
+  void editArtist(int idArtist){
+    cout << "What do you want to edit ? "<<endl;
     cout << "(1)  Name  "<< "(2)  Genre  "<< "(3) Year of birth" <<endl;
     int choice;
     cin >> choice;
@@ -222,8 +222,7 @@ public:
 
    int menu1() {
 
-   		std::cout << "1.  Open Library      " << "2.  Search Artist      " << "3.  Search Track     " <<endl;
-   		std::cout << "4.  Add a new artist  " << "5.  Save your Library  " << "6. Quit              " <<endl;
+   		std::cout << "1.  Open Library      " << "2.  Search       " << "3. Quit    " <<endl;
 		  std::cout << "Choose an option !"<<endl;
 
    	int i;
@@ -260,20 +259,18 @@ public:
 
         cout << artists[nbArtist-1].getTracks()[idTrack-1].getName() << " has been deleted" << endl;
         artists[nbArtist-1].getTracks().erase(artists[nbArtist-1].getTracks().begin() + idTrack - 1);
-      } 
+      }
       else if (choice == 3){
         std::cout<< "Back Home" <<endl;
-      } 
+      }
     }
-
     else if (choice == 2){
         std::cout<< "You want to add a new track" <<endl;
-    } 
+    }
     else if (choice == 3){
       std::cout<< "Back Home" <<endl;
     }
-   }   
-
+   }
 
 
 
@@ -286,7 +283,7 @@ public:
    	int choice;
    	std::cout <<endl;
    	std::cout << "(1) choose an artist  "<< "(2) Edit an artist " <<endl;
-   	std::cout << "(3) Remove an artist  "<< "(4) Home           " <<endl;
+   	std::cout << "(3) Remove an artist  "<< "(4) Add an artist " << "(5) Home       " <<endl;
   	cin >> choice;
 
     if (choice == 1){
@@ -308,14 +305,21 @@ public:
 
     }
     else if (choice == 4){
+      string artistName, artistGenre; int artistYear;
+      std::cout<< "Type the name of a new artist you want to add" <<endl;
+      cin >> artistName;
+      std::cout<< "Type the genre of a new artist you want to add" <<endl;
+      cin >> artistGenre;
+      std::cout<< "Type the year of birth of a new artist you want to add" <<endl;
+      cin >> artistYear;
+      Artist newArtist = Artist(artistName, artistGenre, artistYear);
+      add(newArtist);
+      cout << artistName << " has been added to the library"<< endl;
+    }
+    else if (choice == 5){
       std::cout<< "Back Home " <<endl;
     }
-   	
    }
-
-
-
-
 
    void displayM1(){
     int loop = 0;
@@ -327,7 +331,7 @@ public:
 
       int choice = menu1();
 
-      while ( choice > 6){
+      while ( choice > 3){
         std::cout << "Choose a possible option please."<<endl;
           choice = menu1();
       }
@@ -337,20 +341,19 @@ public:
         std::cout << "Your Artists : "<<endl;
         menuLib();
       }
+      // This is only working for non space names.
       if (choice == 2){
-        std::cout<< "search not ready... :(" <<endl;
+        cout<< "which artist do you want to search ?" <<endl;
+        string artistName;
+        cin >> artistName;
+        for(unsigned int i=0; i<artists.size();i++){
+          if(artists[i].getName() == artistName){
+            printArtist(i);
+          }
+        }
       }
       if (choice == 3){
-        std::cout<< "search not ready... :(" <<endl;
-      }
-      if (choice == 4){
-        std::cout<< "adding not ready... :(" <<endl;
-      }
-      if (choice == 5){
-        std::cout<< "saving not ready... :(" <<endl;
-      }
-      if (choice == 6){
-        std::cout<< " Good bye ! A Ploutard" << "\n" <<endl; 
+        std::cout<< " Good bye ! A Ploutard" << "\n" <<endl;
         loop = 1;
       }
 
@@ -429,12 +432,6 @@ int main(){
   niemen.addTrack(dziwny);
   niemen.addTrack(sen);
   niemen.addTrack(weim);
-  
-  
-  
-  
-
-
 
 //adding to our library
   myMusic.add(iggyPop);
