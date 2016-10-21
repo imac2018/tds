@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template
+CMAKE_SOURCE_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build
+CMAKE_BINARY_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -73,14 +73,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/CMakeFiles/progress.marks
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/CMakeFiles/progress.marks
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/clean
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/clean
 .PHONY : clean
 
 # The main clean target
@@ -89,22 +89,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/preinstall
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/preinstall
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule
 
 # Convenience name for target.
@@ -113,12 +113,12 @@ TP1_ldussouc_exo1_disk: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule
 
 # fast build rule for target.
 TP1_ldussouc_exo1_disk/fast:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build
 .PHONY : TP1_ldussouc_exo1_disk/fast
 
 # Convenience name for target.
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rule:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rule
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rule
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ TP1_ldussouc_exo1_quads: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rul
 
 # fast build rule for target.
 TP1_ldussouc_exo1_quads/fast:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build
 .PHONY : TP1_ldussouc_exo1_quads/fast
 
 # Convenience name for target.
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/rule:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/rule
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/rule
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ TP1_ldussouc_exo1_triangle: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.d
 
 # fast build rule for target.
 TP1_ldussouc_exo1_triangle/fast:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build
 .PHONY : TP1_ldussouc_exo1_triangle/fast
 
 exo1_disk.o: exo1_disk.cpp.o
@@ -149,7 +149,7 @@ exo1_disk.o: exo1_disk.cpp.o
 
 # target to build an object file
 exo1_disk.cpp.o:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.o
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.o
 .PHONY : exo1_disk.cpp.o
 
 exo1_disk.i: exo1_disk.cpp.i
@@ -157,7 +157,7 @@ exo1_disk.i: exo1_disk.cpp.i
 
 # target to preprocess a source file
 exo1_disk.cpp.i:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.i
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.i
 .PHONY : exo1_disk.cpp.i
 
 exo1_disk.s: exo1_disk.cpp.s
@@ -165,7 +165,7 @@ exo1_disk.s: exo1_disk.cpp.s
 
 # target to generate assembly for a file
 exo1_disk.cpp.s:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.s
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/exo1_disk.cpp.s
 .PHONY : exo1_disk.cpp.s
 
 exo1_quads.o: exo1_quads.cpp.o
@@ -173,7 +173,7 @@ exo1_quads.o: exo1_quads.cpp.o
 
 # target to build an object file
 exo1_quads.cpp.o:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/exo1_quads.cpp.o
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/exo1_quads.cpp.o
 .PHONY : exo1_quads.cpp.o
 
 exo1_quads.i: exo1_quads.cpp.i
@@ -181,7 +181,7 @@ exo1_quads.i: exo1_quads.cpp.i
 
 # target to preprocess a source file
 exo1_quads.cpp.i:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/exo1_quads.cpp.i
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/exo1_quads.cpp.i
 .PHONY : exo1_quads.cpp.i
 
 exo1_quads.s: exo1_quads.cpp.s
@@ -189,7 +189,7 @@ exo1_quads.s: exo1_quads.cpp.s
 
 # target to generate assembly for a file
 exo1_quads.cpp.s:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/exo1_quads.cpp.s
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/exo1_quads.cpp.s
 .PHONY : exo1_quads.cpp.s
 
 exo1_triangle.o: exo1_triangle.cpp.o
@@ -197,7 +197,7 @@ exo1_triangle.o: exo1_triangle.cpp.o
 
 # target to build an object file
 exo1_triangle.cpp.o:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.o
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.o
 .PHONY : exo1_triangle.cpp.o
 
 exo1_triangle.i: exo1_triangle.cpp.i
@@ -205,7 +205,7 @@ exo1_triangle.i: exo1_triangle.cpp.i
 
 # target to preprocess a source file
 exo1_triangle.cpp.i:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.i
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.i
 .PHONY : exo1_triangle.cpp.i
 
 exo1_triangle.s: exo1_triangle.cpp.s
@@ -213,7 +213,7 @@ exo1_triangle.s: exo1_triangle.cpp.s
 
 # target to generate assembly for a file
 exo1_triangle.cpp.s:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.s
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.s
 .PHONY : exo1_triangle.cpp.s
 
 # Help Target
@@ -247,6 +247,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

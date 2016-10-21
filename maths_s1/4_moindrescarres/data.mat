@@ -1,0 +1,16 @@
+# lignes :individus
+# colonne  1 : observable
+# colonnes 2 .. n : variables explicatives
+
+row 9
+col 4
+
+5 2 3 2
+2 5 5 4
+8 1 1 2
+1 5 6 4
+3 4 5 2
+2 4 6 4
+4 3 3 2
+4 4 2 4
+2 4 6 4
