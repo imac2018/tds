@@ -85,7 +85,7 @@ public:
     return this->yearofbirth;
   }
 
-  std::vector<Track> getTracks() const{
+  std::vector<Track>& getTracks(){
     return this->tracks;
   }
 
@@ -157,9 +157,6 @@ public:
 
 
 
-
-
-
 class Library{
 private:
   std::vector<Artist> artists;
@@ -222,7 +219,7 @@ public:
 
    int menu1() {
 
-   		std::cout << "1.  Open Library      " << "2.  Search       " << "3. Quit    " <<endl;
+   		std::cout << "1.  Open Library      " << "2.  Search      " << "3. Quit    " <<endl;
 		  std::cout << "Choose an option !"<<endl;
 
    	int i;
@@ -258,14 +255,25 @@ public:
         cin >> idTrack;
 
         cout << artists[nbArtist-1].getTracks()[idTrack-1].getName() << " has been deleted" << endl;
-        artists[nbArtist-1].getTracks().erase(artists[nbArtist-1].getTracks().begin() + idTrack - 1);
+        (artists[nbArtist-1].getTracks()).erase((artists[nbArtist-1].getTracks()).begin() + idTrack - 1);
       }
       else if (choice == 3){
         std::cout<< "Back Home" <<endl;
       }
     }
     else if (choice == 2){
-        std::cout<< "You want to add a new track" <<endl;
+      std::cout<< "You want to add a new track" <<endl;
+      string trackName, trackGenre; int trackLength;
+      std::cout<< "Type the name of a new track you want to add (no space pls)" <<endl;
+      cin >> trackName;
+      std::cout<< "Type the genre of a new track you want to add (no space pls)" <<endl;
+      cin >> trackGenre;
+      std::cout<< "Type the length of a new track you want to add (no space pls)" <<endl;
+      cin >> trackLength;
+      Track newtrack = Track(trackName, trackGenre, trackLength);
+      artists[nbArtist - 1].addTrack(newtrack);
+      cout << trackName << " has been added to the library"<< endl;
+
     }
     else if (choice == 3){
       std::cout<< "Back Home" <<endl;
@@ -283,7 +291,7 @@ public:
    	int choice;
    	std::cout <<endl;
    	std::cout << "(1) choose an artist  "<< "(2) Edit an artist " <<endl;
-   	std::cout << "(3) Remove an artist  "<< "(4) Add an artist " << "(5) Home       " <<endl;
+   	std::cout << "(3) Remove an artist  "<< "(4) Add an artist  " << "(5) Home       " <<endl;
   	cin >> choice;
 
     if (choice == 1){
@@ -341,15 +349,21 @@ public:
         std::cout << "Your Artists : "<<endl;
         menuLib();
       }
-      // This is only working for non space names.
+
+
+      //   /!\  Search is only working for non space names.
+      //
       if (choice == 2){
         cout<< "which artist do you want to search ?" <<endl;
         string artistName;
         cin >> artistName;
         for(unsigned int i=0; i<artists.size();i++){
           if(artists[i].getName() == artistName){
-            printArtist(i);
+            menuLib1(i+1);
           }
+          else if (i == artists.size()-1)
+            std::cout<< " Sorry no artist was found :(" << "\n" <<endl;
+
         }
       }
       if (choice == 3){
@@ -378,19 +392,19 @@ int main(){
   Library myMusic = Library();
 
 //creation of artist
-  Artist iggyPop = Artist("Iggy Pop", "Garage Rock", 1947);
-  Artist beatles = Artist("The Beatles", "Rock", 1947);
-  Artist dylan = Artist("Bob Dylan", "Folk", 1941);
-  Artist johnny = Artist("Johnny Hallyday", "Rock", 1943);
-  Artist elvis = Artist("Elvis Presley", "Rock", 1935);
-  Artist snoop = Artist("Snoop Dogg", "Rap", 1971);
-  Artist daft = Artist("Daft Punk", "Electro", 1983);
-  Artist christy = Artist("Christine and th Queens", "Pop", 1980);
-  Artist goldman = Artist("Jean Jaques Goldman", "Variety", 1951);
-  Artist bruel = Artist("Patrick Bruel", "Variety", 1959);
-  Artist clash = Artist("The Clash", "Variety", 1972);
-  Artist krzysztof = Artist("Krzysztof Krawczyk", "Variety", 1946);
-  Artist niemen = Artist("Czesl,aw Niemen", "Variety", 1939);
+  Artist iggyPop = Artist("Iggy_Pop", "Garage Rock", 1947);
+  Artist beatles = Artist("The_Beatles", "Rock", 1947);
+  Artist dylan = Artist("Bob_Dylan", "Folk", 1941);
+  Artist johnny = Artist("Johnny_Hallyday", "Rock", 1943);
+  Artist elvis = Artist("Elvis_Presley", "Rock", 1935);
+  Artist snoop = Artist("Snoop_Dogg", "Rap", 1971);
+  Artist daft = Artist("Daft_Punk", "Electro", 1983);
+  Artist christy = Artist("Christine_and_the_Queens", "Pop", 1980);
+  Artist goldman = Artist("Jean_Jaques_Goldman", "Variety", 1951);
+  Artist bruel = Artist("Patrick_Bruel", "Variety", 1959);
+  Artist clash = Artist("The_Clash", "Variety", 1972);
+  Artist krzysztof = Artist("Krzysztof_Krawczyk", "Variety", 1946);
+  Artist niemen = Artist("Czesl,aw_Niemen", "Variety", 1939);
 
 
 // creation of Tracks  
