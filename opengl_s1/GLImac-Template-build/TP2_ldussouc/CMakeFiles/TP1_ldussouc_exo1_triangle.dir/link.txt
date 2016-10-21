@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/TP1_ldussouc_exo1_triangle.dir/exo1_triangle.cpp.o  -o TP1_ldussouc_exo1_triangle -rdynamic ../glimac/libglimac.a -Wl,-Bstatic -lSDLmain -Wl,-Bdynamic -lSDL -lpthread /usr/lib/x86_64-linux-gnu/libGL.so.1 -lGLEW 

@@ -116,6 +116,58 @@ glimac/fast:
 .PHONY : glimac/fast
 
 #=============================================================================
+<<<<<<< HEAD
+# Target rules for targets named TP2_ldussouc_exo1_disk
+
+# Build rule for target.
+TP2_ldussouc_exo1_disk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc_exo1_disk
+.PHONY : TP2_ldussouc_exo1_disk
+
+# fast build rule for target.
+TP2_ldussouc_exo1_disk/fast:
+	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/build
+.PHONY : TP2_ldussouc_exo1_disk/fast
+
+#=============================================================================
+# Target rules for targets named TP2_ldussouc_exo1_quads
+
+# Build rule for target.
+TP2_ldussouc_exo1_quads: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc_exo1_quads
+.PHONY : TP2_ldussouc_exo1_quads
+
+# fast build rule for target.
+TP2_ldussouc_exo1_quads/fast:
+	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/build
+.PHONY : TP2_ldussouc_exo1_quads/fast
+
+#=============================================================================
+# Target rules for targets named TP2_ldussouc_exo1_triangle
+
+# Build rule for target.
+TP2_ldussouc_exo1_triangle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc_exo1_triangle
+.PHONY : TP2_ldussouc_exo1_triangle
+
+# fast build rule for target.
+TP2_ldussouc_exo1_triangle/fast:
+	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/build
+.PHONY : TP2_ldussouc_exo1_triangle/fast
+
+#=============================================================================
+# Target rules for targets named TP2_ldussouc_exo2_mandelbrot
+
+# Build rule for target.
+TP2_ldussouc_exo2_mandelbrot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc_exo2_mandelbrot
+.PHONY : TP2_ldussouc_exo2_mandelbrot
+
+# fast build rule for target.
+TP2_ldussouc_exo2_mandelbrot/fast:
+	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build
+.PHONY : TP2_ldussouc_exo2_mandelbrot/fast
+=======
 # Target rules for targets named TP4_ylcq_jouer
 
 # Build rule for target.
@@ -140,6 +192,7 @@ TP4_ylcq_mandelbrot: cmake_check_build_system
 TP4_ylcq_mandelbrot/fast:
 	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
 .PHONY : TP4_ylcq_mandelbrot/fast
+>>>>>>> 5076888f7de4b36d595bbe5628dfd81d1ff3d56e
 
 #=============================================================================
 # Target rules for targets named TP1_ldussouc_exo1_disk
@@ -189,8 +242,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... glimac"
+<<<<<<< HEAD
+	@echo "... TP2_ldussouc_exo1_disk"
+	@echo "... TP2_ldussouc_exo1_quads"
+	@echo "... TP2_ldussouc_exo1_triangle"
+	@echo "... TP2_ldussouc_exo2_mandelbrot"
+=======
 	@echo "... TP4_ylcq_jouer"
 	@echo "... TP4_ylcq_mandelbrot"
+>>>>>>> 5076888f7de4b36d595bbe5628dfd81d1ff3d56e
 	@echo "... TP1_ldussouc_exo1_disk"
 	@echo "... TP1_ldussouc_exo1_quads"
 	@echo "... TP1_ldussouc_exo1_triangle"
