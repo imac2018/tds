@@ -130,6 +130,20 @@ TP4_ylcq_mandelbrot/fast:
 	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
 .PHONY : TP4_ylcq_mandelbrot/fast
 
+# Convenience name for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule:
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+
+# Convenience name for target.
+TP4_ylcq_pls: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+.PHONY : TP4_ylcq_pls
+
+# fast build rule for target.
+TP4_ylcq_pls/fast:
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build
+.PHONY : TP4_ylcq_pls/fast
+
 jouer.o: jouer.cpp.o
 .PHONY : jouer.o
 
@@ -178,6 +192,30 @@ mandelbrot.cpp.s:
 	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.s
 .PHONY : mandelbrot.cpp.s
 
+pls.o: pls.cpp.o
+.PHONY : pls.o
+
+# target to build an object file
+pls.cpp.o:
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/pls.cpp.o
+.PHONY : pls.cpp.o
+
+pls.i: pls.cpp.i
+.PHONY : pls.i
+
+# target to preprocess a source file
+pls.cpp.i:
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/pls.cpp.i
+.PHONY : pls.cpp.i
+
+pls.s: pls.cpp.s
+.PHONY : pls.s
+
+# target to generate assembly for a file
+pls.cpp.s:
+	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/pls.cpp.s
+.PHONY : pls.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,6 +224,7 @@ help:
 	@echo "... depend"
 	@echo "... TP4_ylcq_jouer"
 	@echo "... TP4_ylcq_mandelbrot"
+	@echo "... TP4_ylcq_pls"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... jouer.o"
@@ -194,6 +233,9 @@ help:
 	@echo "... mandelbrot.o"
 	@echo "... mandelbrot.i"
 	@echo "... mandelbrot.s"
+	@echo "... pls.o"
+	@echo "... pls.i"
+	@echo "... pls.s"
 .PHONY : help
 
 

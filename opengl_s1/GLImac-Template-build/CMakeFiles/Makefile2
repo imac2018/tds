@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template
+CMAKE_SOURCE_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build
+CMAKE_BINARY_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build
 
 #=============================================================================
 # Directory level rules for directory glimac
@@ -74,7 +74,7 @@ glimac/preinstall:
 glimac/CMakeFiles/glimac.dir/all:
 	$(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/depend
 	$(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  8 9 10 11 12 13 14 15
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  12 13 14 15 16 17 18 19
 	@echo "Built target glimac"
 .PHONY : glimac/CMakeFiles/glimac.dir/all
 
@@ -84,9 +84,9 @@ all: glimac/CMakeFiles/glimac.dir/all
 
 # Build rule for subdir invocation for target.
 glimac/CMakeFiles/glimac.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 glimac/CMakeFiles/glimac.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : glimac/CMakeFiles/glimac.dir/rule
 
 # Convenience name for target.
@@ -100,6 +100,130 @@ glimac/CMakeFiles/glimac.dir/clean:
 
 # clean rule for target.
 clean: glimac/CMakeFiles/glimac.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory TP4_ylcq
+
+# Convenience name for "all" pass in the directory.
+TP4_ylcq/all: TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/all
+TP4_ylcq/all: TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/all
+TP4_ylcq/all: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/all
+.PHONY : TP4_ylcq/all
+
+# Convenience name for "clean" pass in the directory.
+TP4_ylcq/clean: TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/clean
+TP4_ylcq/clean: TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/clean
+TP4_ylcq/clean: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/clean
+.PHONY : TP4_ylcq/clean
+
+# Convenience name for "preinstall" pass in the directory.
+TP4_ylcq/preinstall:
+.PHONY : TP4_ylcq/preinstall
+
+#=============================================================================
+# Target rules for target TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir
+
+# All Build rule for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/depend
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  8
+	@echo "Built target TP4_ylcq_jouer"
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/all
+
+# Include target in all.
+all: TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule
+
+# Convenience name for target.
+TP4_ylcq_jouer: TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule
+.PHONY : TP4_ylcq_jouer
+
+# clean rule for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/clean:
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/clean
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/clean
+
+# clean rule for target.
+clean: TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir
+
+# All Build rule for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/depend
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  9
+	@echo "Built target TP4_ylcq_mandelbrot"
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/all
+
+# Include target in all.
+all: TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule
+
+# Convenience name for target.
+TP4_ylcq_mandelbrot: TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule
+.PHONY : TP4_ylcq_mandelbrot
+
+# clean rule for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/clean:
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/clean
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/clean
+
+# clean rule for target.
+clean: TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir
+
+# All Build rule for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/depend
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  10
+	@echo "Built target TP4_ylcq_pls"
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/all
+
+# Include target in all.
+all: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+
+# Convenience name for target.
+TP4_ylcq_pls: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+.PHONY : TP4_ylcq_pls
+
+# clean rule for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/clean:
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/clean
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/clean
+
+# clean rule for target.
+clean: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -130,7 +254,7 @@ TP2_ldussouc/preinstall:
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/depend
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  4
 	@echo "Built target TP2_ldussouc_exo1_disk"
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/all
 
@@ -140,9 +264,9 @@ all: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/all
 
 # Build rule for subdir invocation for target.
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/rule
 
 # Convenience name for target.
@@ -165,7 +289,7 @@ clean: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_disk.dir/clean
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/depend
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  5
 	@echo "Built target TP2_ldussouc_exo1_quads"
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/all
 
@@ -175,9 +299,9 @@ all: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/all
 
 # Build rule for subdir invocation for target.
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/rule
 
 # Convenience name for target.
@@ -200,7 +324,7 @@ clean: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_quads.dir/clean
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/depend
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  6
 	@echo "Built target TP2_ldussouc_exo1_triangle"
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/all
 
@@ -210,9 +334,9 @@ all: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/all
 
 # Build rule for subdir invocation for target.
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/rule
 
 # Convenience name for target.
@@ -235,7 +359,7 @@ clean: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo1_triangle.dir/clean
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/depend
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  7
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  7
 	@echo "Built target TP2_ldussouc_exo2_mandelbrot"
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/all
 
@@ -245,9 +369,9 @@ all: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/all
 
 # Build rule for subdir invocation for target.
 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/rule
 
 # Convenience name for target.
@@ -261,6 +385,56 @@ TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/clean:
 
 # clean rule for target.
 clean: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory TP_template
+
+# Convenience name for "all" pass in the directory.
+TP_template/all: TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all
+.PHONY : TP_template/all
+
+# Convenience name for "clean" pass in the directory.
+TP_template/clean: TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean
+.PHONY : TP_template/clean
+
+# Convenience name for "preinstall" pass in the directory.
+TP_template/preinstall:
+.PHONY : TP_template/preinstall
+
+#=============================================================================
+# Target rules for target TP_template/CMakeFiles/TP_template_SDLtemplate.dir
+
+# All Build rule for target.
+TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build.make TP_template/CMakeFiles/TP_template_SDLtemplate.dir/depend
+	$(MAKE) -f TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build.make TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  11
+	@echo "Built target TP_template_SDLtemplate"
+.PHONY : TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all
+
+# Include target in all.
+all: TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+TP_template/CMakeFiles/TP_template_SDLtemplate.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+.PHONY : TP_template/CMakeFiles/TP_template_SDLtemplate.dir/rule
+
+# Convenience name for target.
+TP_template_SDLtemplate: TP_template/CMakeFiles/TP_template_SDLtemplate.dir/rule
+.PHONY : TP_template_SDLtemplate
+
+# clean rule for target.
+TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean:
+	$(MAKE) -f TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build.make TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean
+.PHONY : TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean
+
+# clean rule for target.
+clean: TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -289,7 +463,7 @@ TP1_ldussouc/preinstall:
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/depend
 	$(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  1
 	@echo "Built target TP1_ldussouc_exo1_disk"
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/all
 
@@ -299,9 +473,9 @@ all: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/all
 
 # Build rule for subdir invocation for target.
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/rule
 
 # Convenience name for target.
@@ -324,7 +498,7 @@ clean: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_disk.dir/clean
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/depend
 	$(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  2
 	@echo "Built target TP1_ldussouc_exo1_quads"
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/all
 
@@ -334,9 +508,9 @@ all: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/all
 
 # Build rule for subdir invocation for target.
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/rule
 
 # Convenience name for target.
@@ -359,7 +533,7 @@ clean: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_quads.dir/clean
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/depend
 	$(MAKE) -f TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build.make TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  3
 	@echo "Built target TP1_ldussouc_exo1_triangle"
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/all
 
@@ -369,9 +543,9 @@ all: TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/all
 
 # Build rule for subdir invocation for target.
 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : TP1_ldussouc/CMakeFiles/TP1_ldussouc_exo1_triangle.dir/rule
 
 # Convenience name for target.
