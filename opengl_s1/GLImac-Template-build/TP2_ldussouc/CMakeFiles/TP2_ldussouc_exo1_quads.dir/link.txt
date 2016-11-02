@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/TP2_ldussouc_exo1_quads.dir/exo1_quads.cpp.o  -o TP2_ldussouc_exo1_quads -rdynamic ../glimac/libglimac.a -Wl,-Bstatic -lSDLmain -Wl,-Bdynamic -lSDL -lpthread /usr/lib/x86_64-linux-gnu/libGL.so.1 -lGLEW 
