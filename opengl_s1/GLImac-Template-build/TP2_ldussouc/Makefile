@@ -158,6 +158,20 @@ TP2_ldussouc_exo2_mandelbrot/fast:
 	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build
 .PHONY : TP2_ldussouc_exo2_mandelbrot/fast
 
+# Convenience name for target.
+TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/rule:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/rule
+.PHONY : TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/rule
+
+# Convenience name for target.
+TP2_ldussouc_exo2_rotation: TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/rule
+.PHONY : TP2_ldussouc_exo2_rotation
+
+# fast build rule for target.
+TP2_ldussouc_exo2_rotation/fast:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build
+.PHONY : TP2_ldussouc_exo2_rotation/fast
+
 exo1_disk.o: exo1_disk.cpp.o
 .PHONY : exo1_disk.o
 
@@ -254,6 +268,30 @@ exo2_mandelbrot.cpp.s:
 	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/exo2_mandelbrot.cpp.s
 .PHONY : exo2_mandelbrot.cpp.s
 
+exo2_rotation.o: exo2_rotation.cpp.o
+.PHONY : exo2_rotation.o
+
+# target to build an object file
+exo2_rotation.cpp.o:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/exo2_rotation.cpp.o
+.PHONY : exo2_rotation.cpp.o
+
+exo2_rotation.i: exo2_rotation.cpp.i
+.PHONY : exo2_rotation.i
+
+# target to preprocess a source file
+exo2_rotation.cpp.i:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/exo2_rotation.cpp.i
+.PHONY : exo2_rotation.cpp.i
+
+exo2_rotation.s: exo2_rotation.cpp.s
+.PHONY : exo2_rotation.s
+
+# target to generate assembly for a file
+exo2_rotation.cpp.s:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/exo2_rotation.cpp.s
+.PHONY : exo2_rotation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -264,6 +302,7 @@ help:
 	@echo "... TP2_ldussouc_exo1_quads"
 	@echo "... TP2_ldussouc_exo1_triangle"
 	@echo "... TP2_ldussouc_exo2_mandelbrot"
+	@echo "... TP2_ldussouc_exo2_rotation"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... exo1_disk.o"
@@ -278,6 +317,9 @@ help:
 	@echo "... exo2_mandelbrot.o"
 	@echo "... exo2_mandelbrot.i"
 	@echo "... exo2_mandelbrot.s"
+	@echo "... exo2_rotation.o"
+	@echo "... exo2_rotation.i"
+	@echo "... exo2_rotation.s"
 .PHONY : help
 
 

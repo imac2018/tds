@@ -9,7 +9,7 @@
 struct Vertex2DUV {
     glm::vec2 position, texcoords;
     Vertex2DUV(float x, float y, float u, float v) 
-        : pos(x,y), texcoords(u,v) {}
+        : position(x,y), texcoords(u,v) {}
 };
 
 using namespace glimac;

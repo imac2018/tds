@@ -10,11 +10,9 @@ using namespace glimac;
 
 struct Vertex2DColor{
   glm::vec2 position;
-  glm::vec3 color;
-
 public:
   Vertex2DColor();
-  Vertex2DColor(glm::vec2 position, glm::vec3 color) : position(position), color(color) {}
+  Vertex2DColor(glm::vec2 position) : position(position) {}
 };
 
 int main(int argc, char** argv) {
@@ -49,10 +47,10 @@ int main(int argc, char** argv) {
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
     Vertex2DColor vertices[] = {
-      Vertex2DColor( glm::vec2(-0.5, -0.5), glm::vec3(1, 0, 0) ), // Sommet 1
-      Vertex2DColor( glm::vec2(-0.5, 0.5), glm::vec3(0, 1, 0) ), // Sommet 2
-      Vertex2DColor( glm::vec2(0.5, -0.5), glm::vec3(0, 0, 1) ), // Sommet 3
-      Vertex2DColor( glm::vec2(0.5, 0.5), glm::vec3(0, 0, 1) ) // Sommet 4
+      Vertex2DColor( glm::vec2(-1, -1) ), // Sommet 1
+      Vertex2DColor( glm::vec2(-1, 1) ), // Sommet 2
+      Vertex2DColor( glm::vec2(1, -1) ), // Sommet 3
+      Vertex2DColor( glm::vec2(1, 1) ) // Sommet 4
     };
 
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -70,10 +68,6 @@ int main(int argc, char** argv) {
       const GLuint VERTEX_ATTR_POSITION = 0;
       glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
       glVertexAttribPointer(VERTEX_ATTR_POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex2DColor), (const GLvoid*)offsetof(Vertex2DColor, position));
-
-      const GLuint VERTEX_ATTR_COLOURS = 1;
-      glEnableVertexAttribArray(VERTEX_ATTR_COLOURS);
-      glVertexAttribPointer(VERTEX_ATTR_COLOURS, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex2DColor), (const GLvoid*)offsetof(Vertex2DColor, color));
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);

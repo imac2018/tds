@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template
+CMAKE_SOURCE_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build
+CMAKE_BINARY_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -73,9 +73,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,7 +116,45 @@ glimac/fast:
 .PHONY : glimac/fast
 
 #=============================================================================
-<<<<<<< HEAD
+# Target rules for targets named TP4_ylcq_jouer
+
+# Build rule for target.
+TP4_ylcq_jouer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq_jouer
+.PHONY : TP4_ylcq_jouer
+
+# fast build rule for target.
+TP4_ylcq_jouer/fast:
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build
+.PHONY : TP4_ylcq_jouer/fast
+
+#=============================================================================
+# Target rules for targets named TP4_ylcq_mandelbrot
+
+# Build rule for target.
+TP4_ylcq_mandelbrot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq_mandelbrot
+.PHONY : TP4_ylcq_mandelbrot
+
+# fast build rule for target.
+TP4_ylcq_mandelbrot/fast:
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
+.PHONY : TP4_ylcq_mandelbrot/fast
+
+#=============================================================================
+# Target rules for targets named TP4_ylcq_pls
+
+# Build rule for target.
+TP4_ylcq_pls: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq_pls
+.PHONY : TP4_ylcq_pls
+
+# fast build rule for target.
+TP4_ylcq_pls/fast:
+	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build
+.PHONY : TP4_ylcq_pls/fast
+
+#=============================================================================
 # Target rules for targets named TP2_ldussouc_exo1_disk
 
 # Build rule for target.
@@ -167,32 +205,32 @@ TP2_ldussouc_exo2_mandelbrot: cmake_check_build_system
 TP2_ldussouc_exo2_mandelbrot/fast:
 	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_mandelbrot.dir/build
 .PHONY : TP2_ldussouc_exo2_mandelbrot/fast
-=======
-# Target rules for targets named TP4_ylcq_jouer
-
-# Build rule for target.
-TP4_ylcq_jouer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq_jouer
-.PHONY : TP4_ylcq_jouer
-
-# fast build rule for target.
-TP4_ylcq_jouer/fast:
-	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build
-.PHONY : TP4_ylcq_jouer/fast
 
 #=============================================================================
-# Target rules for targets named TP4_ylcq_mandelbrot
+# Target rules for targets named TP2_ldussouc_exo2_rotation
 
 # Build rule for target.
-TP4_ylcq_mandelbrot: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq_mandelbrot
-.PHONY : TP4_ylcq_mandelbrot
+TP2_ldussouc_exo2_rotation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP2_ldussouc_exo2_rotation
+.PHONY : TP2_ldussouc_exo2_rotation
 
 # fast build rule for target.
-TP4_ylcq_mandelbrot/fast:
-	$(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
-.PHONY : TP4_ylcq_mandelbrot/fast
->>>>>>> 5076888f7de4b36d595bbe5628dfd81d1ff3d56e
+TP2_ldussouc_exo2_rotation/fast:
+	$(MAKE) -f TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build.make TP2_ldussouc/CMakeFiles/TP2_ldussouc_exo2_rotation.dir/build
+.PHONY : TP2_ldussouc_exo2_rotation/fast
+
+#=============================================================================
+# Target rules for targets named TP_template_SDLtemplate
+
+# Build rule for target.
+TP_template_SDLtemplate: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP_template_SDLtemplate
+.PHONY : TP_template_SDLtemplate
+
+# fast build rule for target.
+TP_template_SDLtemplate/fast:
+	$(MAKE) -f TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build.make TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build
+.PHONY : TP_template_SDLtemplate/fast
 
 #=============================================================================
 # Target rules for targets named TP1_ldussouc_exo1_disk
@@ -242,15 +280,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... glimac"
-<<<<<<< HEAD
+	@echo "... TP4_ylcq_jouer"
+	@echo "... TP4_ylcq_mandelbrot"
+	@echo "... TP4_ylcq_pls"
 	@echo "... TP2_ldussouc_exo1_disk"
 	@echo "... TP2_ldussouc_exo1_quads"
 	@echo "... TP2_ldussouc_exo1_triangle"
 	@echo "... TP2_ldussouc_exo2_mandelbrot"
-=======
-	@echo "... TP4_ylcq_jouer"
-	@echo "... TP4_ylcq_mandelbrot"
->>>>>>> 5076888f7de4b36d595bbe5628dfd81d1ff3d56e
+	@echo "... TP2_ldussouc_exo2_rotation"
+	@echo "... TP_template_SDLtemplate"
 	@echo "... TP1_ldussouc_exo1_disk"
 	@echo "... TP1_ldussouc_exo1_quads"
 	@echo "... TP1_ldussouc_exo1_triangle"

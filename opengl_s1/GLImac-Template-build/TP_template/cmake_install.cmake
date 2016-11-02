@@ -1,4 +1,4 @@
-# Install script for directory: /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template/TP4_ylcq
+# Install script for directory: /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template/TP_template
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

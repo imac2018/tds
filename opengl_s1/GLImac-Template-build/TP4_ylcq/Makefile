@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template
+CMAKE_SOURCE_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build
+CMAKE_BINARY_DIR = /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -73,14 +73,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/CMakeFiles/progress.marks
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/CMakeFiles/progress.marks
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/clean
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/clean
 .PHONY : clean
 
 # The main clean target
@@ -89,22 +89,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/preinstall
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/preinstall
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule
 .PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule
 
 # Convenience name for target.
@@ -113,12 +113,12 @@ TP4_ylcq_jouer: TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/rule
 
 # fast build rule for target.
 TP4_ylcq_jouer/fast:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build
 .PHONY : TP4_ylcq_jouer/fast
 
 # Convenience name for target.
 TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule
 .PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule
 
 # Convenience name for target.
@@ -127,15 +127,29 @@ TP4_ylcq_mandelbrot: TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/rule
 
 # fast build rule for target.
 TP4_ylcq_mandelbrot/fast:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build
 .PHONY : TP4_ylcq_mandelbrot/fast
+
+# Convenience name for target.
+TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f CMakeFiles/Makefile2 TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+.PHONY : TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+
+# Convenience name for target.
+TP4_ylcq_pls: TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/rule
+.PHONY : TP4_ylcq_pls
+
+# fast build rule for target.
+TP4_ylcq_pls/fast:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build
+.PHONY : TP4_ylcq_pls/fast
 
 jouer.o: jouer.cpp.o
 .PHONY : jouer.o
 
 # target to build an object file
 jouer.cpp.o:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/jouer.cpp.o
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/jouer.cpp.o
 .PHONY : jouer.cpp.o
 
 jouer.i: jouer.cpp.i
@@ -143,7 +157,7 @@ jouer.i: jouer.cpp.i
 
 # target to preprocess a source file
 jouer.cpp.i:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/jouer.cpp.i
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/jouer.cpp.i
 .PHONY : jouer.cpp.i
 
 jouer.s: jouer.cpp.s
@@ -151,7 +165,7 @@ jouer.s: jouer.cpp.s
 
 # target to generate assembly for a file
 jouer.cpp.s:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/jouer.cpp.s
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir/jouer.cpp.s
 .PHONY : jouer.cpp.s
 
 mandelbrot.o: mandelbrot.cpp.o
@@ -159,7 +173,7 @@ mandelbrot.o: mandelbrot.cpp.o
 
 # target to build an object file
 mandelbrot.cpp.o:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.o
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.o
 .PHONY : mandelbrot.cpp.o
 
 mandelbrot.i: mandelbrot.cpp.i
@@ -167,7 +181,7 @@ mandelbrot.i: mandelbrot.cpp.i
 
 # target to preprocess a source file
 mandelbrot.cpp.i:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.i
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.i
 .PHONY : mandelbrot.cpp.i
 
 mandelbrot.s: mandelbrot.cpp.s
@@ -175,8 +189,32 @@ mandelbrot.s: mandelbrot.cpp.s
 
 # target to generate assembly for a file
 mandelbrot.cpp.s:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.s
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir/mandelbrot.cpp.s
 .PHONY : mandelbrot.cpp.s
+
+pls.o: pls.cpp.o
+.PHONY : pls.o
+
+# target to build an object file
+pls.cpp.o:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/pls.cpp.o
+.PHONY : pls.cpp.o
+
+pls.i: pls.cpp.i
+.PHONY : pls.i
+
+# target to preprocess a source file
+pls.cpp.i:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/pls.cpp.i
+.PHONY : pls.cpp.i
+
+pls.s: pls.cpp.s
+.PHONY : pls.s
+
+# target to generate assembly for a file
+pls.cpp.s:
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(MAKE) -f TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/build.make TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir/pls.cpp.s
+.PHONY : pls.cpp.s
 
 # Help Target
 help:
@@ -186,6 +224,7 @@ help:
 	@echo "... depend"
 	@echo "... TP4_ylcq_jouer"
 	@echo "... TP4_ylcq_mandelbrot"
+	@echo "... TP4_ylcq_pls"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... jouer.o"
@@ -194,6 +233,9 @@ help:
 	@echo "... mandelbrot.o"
 	@echo "... mandelbrot.i"
 	@echo "... mandelbrot.s"
+	@echo "... pls.o"
+	@echo "... pls.i"
+	@echo "... pls.s"
 .PHONY : help
 
 
@@ -205,6 +247,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/6im2/ldussouc/Documents/c++/tds/opengl_s1/GLImac-Template-build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
