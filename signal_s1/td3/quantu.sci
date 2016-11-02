@@ -19,4 +19,3 @@ q = (d(1:N)+d(2:N+1))/2;
 y = quant(x,d,q);
 
 endfunction
-
