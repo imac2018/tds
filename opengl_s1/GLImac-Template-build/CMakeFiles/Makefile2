@@ -74,7 +74,7 @@ glimac/preinstall:
 glimac/CMakeFiles/glimac.dir/all:
 	$(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/depend
 	$(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  12 13 14 15 16 17 18 19
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  13 14 15 16 17 18 19 20
 	@echo "Built target glimac"
 .PHONY : glimac/CMakeFiles/glimac.dir/all
 
@@ -409,7 +409,7 @@ TP_template/preinstall:
 TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all: glimac/CMakeFiles/glimac.dir/all
 	$(MAKE) -f TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build.make TP_template/CMakeFiles/TP_template_SDLtemplate.dir/depend
 	$(MAKE) -f TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build.make TP_template/CMakeFiles/TP_template_SDLtemplate.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  11
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  12
 	@echo "Built target TP_template_SDLtemplate"
 .PHONY : TP_template/CMakeFiles/TP_template_SDLtemplate.dir/all
 
@@ -435,6 +435,56 @@ TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean:
 
 # clean rule for target.
 clean: TP_template/CMakeFiles/TP_template_SDLtemplate.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory TP6_ylcq
+
+# Convenience name for "all" pass in the directory.
+TP6_ylcq/all: TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/all
+.PHONY : TP6_ylcq/all
+
+# Convenience name for "clean" pass in the directory.
+TP6_ylcq/clean: TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/clean
+.PHONY : TP6_ylcq/clean
+
+# Convenience name for "preinstall" pass in the directory.
+TP6_ylcq/preinstall:
+.PHONY : TP6_ylcq/preinstall
+
+#=============================================================================
+# Target rules for target TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir
+
+# All Build rule for target.
+TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/build.make TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/depend
+	$(MAKE) -f TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/build.make TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles  11
+	@echo "Built target TP6_ylcq_dessiner"
+.PHONY : TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/all
+
+# Include target in all.
+all: TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/CMakeFiles 0
+.PHONY : TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/rule
+
+# Convenience name for target.
+TP6_ylcq_dessiner: TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/rule
+.PHONY : TP6_ylcq_dessiner
+
+# clean rule for target.
+TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/clean:
+	$(MAKE) -f TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/build.make TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/clean
+.PHONY : TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/clean
+
+# clean rule for target.
+clean: TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/clean
 .PHONY : clean
 
 #=============================================================================

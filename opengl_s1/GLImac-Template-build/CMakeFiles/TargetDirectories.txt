@@ -8,5 +8,6 @@
 /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/CMakeFiles/TP4_ylcq_jouer.dir
 /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/CMakeFiles/TP4_ylcq_mandelbrot.dir
 /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/CMakeFiles/TP4_ylcq_pls.dir
+/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir
 /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP_template/CMakeFiles/TP_template_SDLtemplate.dir
 /home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/glimac/CMakeFiles/glimac.dir

@@ -38,6 +38,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP4_ylcq/cmake_install.cmake")
   include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP2_ldussouc/cmake_install.cmake")
   include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP_template/cmake_install.cmake")
+  include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP6_ylcq/cmake_install.cmake")
   include("/home/6im2/ylecoq/prog/tds/opengl_s1/GLImac-Template-build/TP1_ldussouc/cmake_install.cmake")
 
 endif()

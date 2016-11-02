@@ -220,6 +220,19 @@ TP_template_SDLtemplate/fast:
 .PHONY : TP_template_SDLtemplate/fast
 
 #=============================================================================
+# Target rules for targets named TP6_ylcq_dessiner
+
+# Build rule for target.
+TP6_ylcq_dessiner: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP6_ylcq_dessiner
+.PHONY : TP6_ylcq_dessiner
+
+# fast build rule for target.
+TP6_ylcq_dessiner/fast:
+	$(MAKE) -f TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/build.make TP6_ylcq/CMakeFiles/TP6_ylcq_dessiner.dir/build
+.PHONY : TP6_ylcq_dessiner/fast
+
+#=============================================================================
 # Target rules for targets named TP1_ldussouc_exo1_disk
 
 # Build rule for target.
@@ -275,6 +288,7 @@ help:
 	@echo "... TP2_ldussouc_exo1_triangle"
 	@echo "... TP2_ldussouc_exo2_mandelbrot"
 	@echo "... TP_template_SDLtemplate"
+	@echo "... TP6_ylcq_dessiner"
 	@echo "... TP1_ldussouc_exo1_disk"
 	@echo "... TP1_ldussouc_exo1_quads"
 	@echo "... TP1_ldussouc_exo1_triangle"
