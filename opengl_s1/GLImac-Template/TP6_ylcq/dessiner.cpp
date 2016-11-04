@@ -1,5 +1,3 @@
-// PLS : Préparer La Suite
-
 #include <glimac/SDLWindowManager.hpp>
 #include <GL/glew.h>
 #include <glimac/Program.hpp>
