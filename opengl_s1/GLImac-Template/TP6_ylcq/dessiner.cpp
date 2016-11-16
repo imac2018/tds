@@ -1,9 +1,13 @@
+// NE ME JUGEZ PAS CE CODE N'EST PAS BEAU NI OPTIMISE NE ME JUGEZ PAS SVP THX
+
 #include <glimac/SDLWindowManager.hpp>
 #include <GL/glew.h>
 #include <glimac/Program.hpp>
 #include <glimac/Sphere.hpp>
 #include <glimac/FilePath.hpp>
 #include <glimac/Image.hpp>
+#include <glimac/TrackballCamera.hpp>
+#include <glimac/FreeflyCamera.hpp>
 #include <glimac/glm.hpp>
 #include <iostream>
 #include <fstream>
@@ -29,6 +33,58 @@ void logActiveUniforms(GLuint progid) {
     }
 }
 
+
+
+struct EarthProgram {
+    Program m_Program;
+
+    GLint uMVPMatrix;
+    GLint uMVMatrix;
+    GLint uNormalMatrix;
+    GLint uEarthTexture;
+    GLint uCloudTexture;
+
+    EarthProgram(const FilePath& applicationPath)
+        : m_Program(loadProgram(
+            applicationPath.dirPath() + "shaders/3D.vs.glsl",
+            applicationPath.dirPath() + "shaders/multiTex3D.fs.glsl")) 
+    {
+        uMVPMatrix    = glGetUniformLocation(m_Program.getGLId(), "uMVPMatrix");
+        uMVMatrix     = glGetUniformLocation(m_Program.getGLId(), "uMVMatrix");
+        uNormalMatrix = glGetUniformLocation(m_Program.getGLId(), "uNormalMatrix");
+        uEarthTexture = glGetUniformLocation(m_Program.getGLId(), "uEarthTexture");
+        uCloudTexture = glGetUniformLocation(m_Program.getGLId(), "uCloudTexture");
+        assert(uMVPMatrix != -1);
+        assert(uMVMatrix != -1);
+        assert(uNormalMatrix != -1);
+        assert(uEarthTexture != -1);
+        assert(uCloudTexture != -1);
+    }
+};
+
+struct MoonProgram {
+    Program m_Program;
+
+    GLint uMVPMatrix;
+    GLint uMVMatrix;
+    GLint uNormalMatrix;
+    GLint uTexture;
+
+    MoonProgram(const FilePath& applicationPath)
+        : m_Program(loadProgram(
+            applicationPath.dirPath() + "shaders/3D.vs.glsl",
+            applicationPath.dirPath() + "shaders/tex3D.fs.glsl")) 
+    {
+        uMVPMatrix    = glGetUniformLocation(m_Program.getGLId(), "uMVPMatrix");
+        uMVMatrix     = glGetUniformLocation(m_Program.getGLId(), "uMVMatrix");
+        uNormalMatrix = glGetUniformLocation(m_Program.getGLId(), "uNormalMatrix");
+        uTexture      = glGetUniformLocation(m_Program.getGLId(), "uTexture");
+        assert(uMVPMatrix != -1);
+        assert(uMVMatrix != -1);
+        assert(uNormalMatrix != -1);
+        assert(uTexture != -1);
+    }
+};
 
 
 int main(int argc, char** argv) {
@@ -75,60 +131,102 @@ int main(int argc, char** argv) {
 
 
     FilePath applicationPath(argv[0]);
-    /*
-    std::string triforcepath 
-        = applicationPath.dirPath() 
-        + "../../GLImac-Template/assets/textures/triforce.png";
-    std::unique_ptr<Image> img = loadImage(triforcepath);
-    if(!img) {
-        std::cerr << "N'a pas pu charger " << triforcepath << " !" << std::endl;
+
+
+    std::string earth_map_path = applicationPath.dirPath() 
+        + "../../GLImac-Template/assets/textures/EarthMap.jpg";
+    std::string moon_map_path = applicationPath.dirPath() 
+        + "../../GLImac-Template/assets/textures/MoonMap.jpg";
+    std::string cloud_map_path = applicationPath.dirPath() 
+        + "../../GLImac-Template/assets/textures/CloudMap.jpg";
+
+
+    std::unique_ptr<Image> earth_map_img = loadImage(earth_map_path);
+    if(!earth_map_img) {
+        std::cerr << "N'a pas pu charger " << earth_map_path << " !" << std::endl;
         return EXIT_FAILURE;
     }
-    */
-    Program program = loadProgram(
-        applicationPath.dirPath() + "shaders/3D.vs.glsl",
-        applicationPath.dirPath() + "shaders/normals.fs.glsl"
-    );
-    /*
-    std::ifstream src(applicationPath.dirPath() + "shaders/3D.vs.glsl");
-    std::cout << src.rdbuf() << std::endl;
-    */
+    std::unique_ptr<Image> moon_map_img = loadImage(moon_map_path);
+    if(!moon_map_img) {
+        std::cerr << "N'a pas pu charger " << moon_map_path << " !" << std::endl;
+        return EXIT_FAILURE;
+    }
+    std::unique_ptr<Image> cloud_map_img = loadImage(cloud_map_path);
+    if(!cloud_map_img) {
+        std::cerr << "N'a pas pu charger " << cloud_map_path << " !" << std::endl;
+        return EXIT_FAILURE;
+    }
 
-    /*
-    GLuint tex = 0;
-    glGenTextures(1, &tex);
-    glBindTexture(GL_TEXTURE_2D, tex);
+
+    GLuint earth_map_tex=0, moon_map_tex=0, cloud_map_tex=0;
+    glGenTextures(1, &earth_map_tex);
+    glGenTextures(1, &moon_map_tex);
+    glGenTextures(1, &cloud_map_tex);
+
+    glBindTexture(GL_TEXTURE_2D, earth_map_tex);
     glTexImage2D(
-        GL_TEXTURE_2D, 0, GL_RGBA, img->getWidth(), img->getHeight(), 0, 
-        GL_RGBA, GL_FLOAT, img->getPixels()
+        GL_TEXTURE_2D, 0, GL_RGBA, 
+        earth_map_img->getWidth(), earth_map_img->getHeight(), 0, 
+        GL_RGBA, GL_FLOAT, earth_map_img->getPixels()
     );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBindTexture(GL_TEXTURE_2D, moon_map_tex);
+    glTexImage2D(
+        GL_TEXTURE_2D, 0, GL_RGBA, 
+        moon_map_img->getWidth(), moon_map_img->getHeight(), 0, 
+        GL_RGBA, GL_FLOAT, moon_map_img->getPixels()
+    );
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBindTexture(GL_TEXTURE_2D, cloud_map_tex);
+    glTexImage2D(
+        GL_TEXTURE_2D, 0, GL_RGBA, 
+        cloud_map_img->getWidth(), cloud_map_img->getHeight(), 0, 
+        GL_RGBA, GL_FLOAT, cloud_map_img->getPixels()
+    );
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+
     glBindTexture(GL_TEXTURE_2D, 0);
-    */
 
-    program.use();
-    GLuint progid = program.getGLId();
 
-    logActiveUniforms(progid);
+    static const size_t EARTH_TEXUNIT = 1;
+    static const size_t MOON_TEXUNIT = 2;
+    static const size_t CLOUD_TEXUNIT = 3;
+    glActiveTexture(GL_TEXTURE0 + EARTH_TEXUNIT);
+    glBindTexture(GL_TEXTURE_2D, earth_map_tex);
+    glActiveTexture(GL_TEXTURE0 + MOON_TEXUNIT);
+    glBindTexture(GL_TEXTURE_2D, moon_map_tex);
+    glActiveTexture(GL_TEXTURE0 + CLOUD_TEXUNIT);
+    glBindTexture(GL_TEXTURE_2D, cloud_map_tex);
+    glActiveTexture(GL_TEXTURE0);
 
-    GLint uMVPMatrixLoc     = glGetUniformLocation(progid, "uMVPMatrix");
-    GLint uMVMatrixLoc      = glGetUniformLocation(progid, "uMVMatrix");
-    GLint uNormalMatrixLoc  = glGetUniformLocation(progid, "uNormalMatrix");
-    assert(uMVPMatrixLoc != -1);
-    assert(uNormalMatrixLoc != -1);
-    assert(uMVMatrixLoc != -1);
+
+    EarthProgram earthProgram(applicationPath);
+    MoonProgram moonProgram(applicationPath);
 
     glEnable(GL_DEPTH_TEST);
-    mat4 ProjMatrix, MVMatrix, NormalMatrix, MVPMatrix;
-    ProjMatrix = perspective(radians(70.f), win_w/(float)win_h, .1f, 100.f);
-    MVMatrix = translate(mat4(), vec3(0,0,-6.f));
-    NormalMatrix = transpose(inverse(MVMatrix));
 
-    MVPMatrix = ProjMatrix * MVMatrix;
-    glUniformMatrix4fv(uMVPMatrixLoc,    1, GL_FALSE, value_ptr(MVPMatrix));
-    glUniformMatrix4fv(uMVMatrixLoc,     1, GL_FALSE, value_ptr(MVMatrix));
-    glUniformMatrix4fv(uNormalMatrixLoc, 1, GL_FALSE, value_ptr(NormalMatrix));
+#define ORBIT_CNT 32
+    vec3 orbit_axes[ORBIT_CNT];
+    float orbit_distances[ORBIT_CNT];
+    float orbit_speeds[ORBIT_CNT];
+    for(size_t i=0 ; i<ORBIT_CNT ; ++i) {
+        orbit_axes[i] = normalize(sphericalRand(1.f));
+        orbit_distances[i] = (i%2 ? -1.f : 1.f)*linearRand(2.f, 4.f);
+        orbit_speeds[i] = linearRand(0.2f, 1.f);
+    }
+
+
+    //TrackballCamera camera;
+    FreeflyCamera camera;
+    ivec2 prev_mouse(0,0);
+    ivec2 move(0,0);
+    bool rotate_camera = false;
 
     // Application loop:
     bool done = false;
@@ -136,41 +234,104 @@ int main(int argc, char** argv) {
         // Event loop:
         SDL_Event e;
         while(windowManager.pollEvent(e)) {
-            if(e.type == SDL_QUIT) {
-                done = true; // Leave the loop after this iteration
+            switch(e.type) {
+            case SDL_QUIT: done = true; break;
+            case SDL_MOUSEBUTTONDOWN: 
+                switch(e.button.button) {
+                case SDL_BUTTON_WHEELUP:   camera.moveFront(.2f); break;
+                case SDL_BUTTON_WHEELDOWN: camera.moveFront(-.2f); break;
+                case SDL_BUTTON_RIGHT:     rotate_camera = true; prev_mouse = ivec2(e.button.x, e.button.y); break;
+                }
+                break;
+            case SDL_MOUSEBUTTONUP: 
+                switch(e.button.button) {
+                case SDL_BUTTON_RIGHT:     rotate_camera = false; break;
+                }
+                break;
+            case SDL_MOUSEMOTION:
+                if(rotate_camera) {
+                    ivec2 mouse(e.motion.x, e.motion.y);
+                    camera.rotateLeft((mouse.x-prev_mouse.x)*-0.4f);
+                    camera.rotateUp((mouse.y-prev_mouse.y)*-0.4f);
+                    prev_mouse = mouse;
+                }
+                break;
+            case SDL_KEYDOWN:
+                switch(e.key.keysym.sym) {
+                case SDLK_RIGHT: case SDLK_d: move.x += 1; break;
+                case SDLK_UP:    case SDLK_z: move.y += 1; break;
+                case SDLK_LEFT:  case SDLK_q: move.x -= 1; break;
+                case SDLK_DOWN:  case SDLK_s: move.y -= 1; break;
+                }
+                break;
+            case SDL_KEYUP:
+                switch(e.key.keysym.sym) {
+                case SDLK_RIGHT: case SDLK_d: move.x -= 1; break;
+                case SDLK_UP:    case SDLK_z: move.y -= 1; break;
+                case SDLK_LEFT:  case SDLK_q: move.x += 1; break;
+                case SDLK_DOWN:  case SDLK_s: move.y += 1; break;
+                }
+                break;
             }
         }
+
+
+        camera.moveLeft (-move.x*0.1);
+        camera.moveFront(move.y*0.1);
+
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glBindVertexArray(vao);
 
-    glUniformMatrix4fv(uMVPMatrixLoc,    1, GL_FALSE, value_ptr(MVPMatrix));
-    glUniformMatrix4fv(uMVMatrixLoc,     1, GL_FALSE, value_ptr(MVMatrix));
-    glUniformMatrix4fv(uNormalMatrixLoc, 1, GL_FALSE, value_ptr(NormalMatrix));
+#define EARTH_Z 0.f // C'était -6.f
+
+    mat4 ProjMatrix, MVMatrix, NormalMatrix, MVPMatrix;
+    ProjMatrix = perspective(radians(70.f), win_w/(float)win_h, .1f, 100.f);
+    MVMatrix = camera.getViewMatrix();
+    MVMatrix = translate(MVMatrix, vec3(0,0,EARTH_Z));
+    MVMatrix = rotate(MVMatrix, windowManager.getTime(), vec3(0,1,0));
+    NormalMatrix = transpose(inverse(MVMatrix));
+    MVPMatrix = ProjMatrix * MVMatrix;
+
+    earthProgram.m_Program.use();
+    glUniform1i(earthProgram.uEarthTexture, EARTH_TEXUNIT);
+    glUniform1i(earthProgram.uCloudTexture, CLOUD_TEXUNIT);
+    glUniformMatrix4fv(earthProgram.uMVPMatrix,    1, GL_FALSE, value_ptr(MVPMatrix));
+    glUniformMatrix4fv(earthProgram.uMVMatrix,     1, GL_FALSE, value_ptr(MVMatrix));
+    glUniformMatrix4fv(earthProgram.uNormalMatrix, 1, GL_FALSE, value_ptr(NormalMatrix));
 
         glDrawArrays(GL_TRIANGLES, 0, sphere.getVertexCount());
 
-        {
-    mat4 MVMatrix = translate(mat4(), vec3(0,0,-6.f));
-         MVMatrix = rotate(MVMatrix, 8*windowManager.getTime(), sphericalRand(1.f));
-         MVMatrix = translate(MVMatrix, vec3(2,0,0));
+    moonProgram.m_Program.use();
+    glUniform1i(moonProgram.uTexture, MOON_TEXUNIT);
+
+        for(size_t i=0 ; i<ORBIT_CNT ; ++i) {
+
+    mat4 MVMatrix = camera.getViewMatrix();
+         MVMatrix = translate(MVMatrix, vec3(0,0,EARTH_Z));
+         //MVMatrix = rotate(MVMatrix, 8*windowManager.getTime(), sphericalRand(1.f));
+         MVMatrix = rotate(MVMatrix, orbit_speeds[i]*windowManager.getTime(), orbit_axes[i]);
+         MVMatrix = translate(MVMatrix, 
+             orbit_distances[i]*normalize(cross(orbit_axes[i], vec3(0,0,1)))
+         );
          MVMatrix = scale(MVMatrix, vec3(.2f,.2f,.2f));
     mat4 MVPMatrix = ProjMatrix * MVMatrix;
     mat4 NormalMatrix = transpose(inverse(MVMatrix));
 
-    glUniformMatrix4fv(uMVPMatrixLoc,    1, GL_FALSE, value_ptr(MVPMatrix));
-    glUniformMatrix4fv(uMVMatrixLoc,     1, GL_FALSE, value_ptr(MVMatrix));
-    glUniformMatrix4fv(uNormalMatrixLoc, 1, GL_FALSE, value_ptr(NormalMatrix));
+    glUniformMatrix4fv(moonProgram.uMVPMatrix,    1, GL_FALSE, value_ptr(MVPMatrix));
+    glUniformMatrix4fv(moonProgram.uMVMatrix,     1, GL_FALSE, value_ptr(MVMatrix));
+    glUniformMatrix4fv(moonProgram.uNormalMatrix, 1, GL_FALSE, value_ptr(NormalMatrix));
+
+    glDrawArrays(GL_TRIANGLES, 0, sphere.getVertexCount());
+
         }
-
-
-        glDrawArrays(GL_TRIANGLES, 0, sphere.getVertexCount());
 
         glBindVertexArray(0);
         windowManager.swapBuffers();
     }
 
-    //glDeleteTextures(1, &tex);
+    glDeleteTextures(1, &earth_map_tex);
+    glDeleteTextures(1, &moon_map_tex);
 
     return EXIT_SUCCESS;
 }
