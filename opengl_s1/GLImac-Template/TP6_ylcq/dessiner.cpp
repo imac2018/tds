@@ -87,6 +87,39 @@ struct MoonProgram {
 };
 
 
+struct DirectionalLightprogram {
+    Program m_Program;
+
+    GLint uMVPMatrix;
+    GLint uMVMatrix;
+    GLint uNormalMatrix;
+    GLint uKd;
+    GLint uKs;
+    GLint uShininess;
+    GLint uLightDir_vs; //vs = view space
+    GLint uLightIntensity;
+
+    DirectionalLightprogram(const FilePath& applicationPath)
+        : m_Program(loadProgram(
+            applicationPath.dirPath() + "shaders/3D.vs.glsl",
+            applicationPath.dirPath() + "shaders/directionallight.fs.glsl")) 
+    {
+#define HELPER(x) \
+        x = glGetUniformLocation(m_Program.getGLId(), #x); \
+        assert(x != -1);
+        HELPER(uMVPMatrix);
+        HELPER(uMVMatrix);
+        HELPER(uNormalMatrix);
+        HELPER(uKd);
+        HELPER(uKs);
+        HELPER(uShininess);
+        HELPER(uLightDir_vs);
+        HELPER(uLightIntensity);
+#undef HELPER
+    }
+};
+
+
 int main(int argc, char** argv) {
     static const size_t win_w = 800, win_h = 600;
     // Initialize SDL and open a window
@@ -208,6 +241,7 @@ int main(int argc, char** argv) {
 
     EarthProgram earthProgram(applicationPath);
     MoonProgram moonProgram(applicationPath);
+    DirectionalLightprogram dlightProgram(applicationPath);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -293,12 +327,26 @@ int main(int argc, char** argv) {
     NormalMatrix = transpose(inverse(MVMatrix));
     MVPMatrix = ProjMatrix * MVMatrix;
 
+    /*
     earthProgram.m_Program.use();
     glUniform1i(earthProgram.uEarthTexture, EARTH_TEXUNIT);
     glUniform1i(earthProgram.uCloudTexture, CLOUD_TEXUNIT);
     glUniformMatrix4fv(earthProgram.uMVPMatrix,    1, GL_FALSE, value_ptr(MVPMatrix));
     glUniformMatrix4fv(earthProgram.uMVMatrix,     1, GL_FALSE, value_ptr(MVMatrix));
     glUniformMatrix4fv(earthProgram.uNormalMatrix, 1, GL_FALSE, value_ptr(NormalMatrix));
+    */
+
+
+    vec4 lightdir_vs = camera.getViewMatrix()*vec4(1,0,0,0);
+    dlightProgram.m_Program.use();
+    glUniform3f(dlightProgram.uKd, .2,.6,1.);
+    glUniform3f(dlightProgram.uKs, 1,1,0);
+    glUniform1f(dlightProgram.uShininess, 1.f);
+    glUniform3fv(dlightProgram.uLightDir_vs, 1, value_ptr(lightdir_vs));
+    glUniform3f(dlightProgram.uLightIntensity, 1,1,1);
+    glUniformMatrix4fv(dlightProgram.uMVPMatrix,    1, GL_FALSE, value_ptr(MVPMatrix));
+    glUniformMatrix4fv(dlightProgram.uMVMatrix,     1, GL_FALSE, value_ptr(MVMatrix));
+    glUniformMatrix4fv(dlightProgram.uNormalMatrix, 1, GL_FALSE, value_ptr(NormalMatrix));
 
         glDrawArrays(GL_TRIANGLES, 0, sphere.getVertexCount());
 

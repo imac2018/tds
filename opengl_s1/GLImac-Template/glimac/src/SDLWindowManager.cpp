@@ -8,6 +8,7 @@ SDLWindowManager::SDLWindowManager(uint32_t width, uint32_t height, const char* 
         std::cerr << SDL_GetError() << std::endl;
         return;
     }
+    //SDL_GL_SetAttribute();
     if(!SDL_SetVideoMode(width, height, 32, SDL_OPENGL)) {
         std::cerr << SDL_GetError() << std::endl;
         return;
