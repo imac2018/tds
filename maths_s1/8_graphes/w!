@@ -1,0 +1,38 @@
+#include <Graphe.hpp>
+
+using namespace std;
+using namespace Eigen;
+
+Graphe::Graphe(size_t n) : mat(n,n) {}
+Graphe::Graphe(const MatrixXi &M) : mat(M) {}
+Graphe::Graphe(const Graphe &G) : mat(G.mat) {}
+Graphe::~Graphe() {}
+
+ostream& operator<<(ostream& stream, const Graphe& g) {
+    return stream << g.mat;
+}
+size_t Graphe::ordre() const {
+    return mat.rows();
+}
+bool   Graphe::voisins(size_t i, size_t j) const {
+    if(i>=ordre())
+        throw out_of_range("i est trop gros !");
+    if(j>=ordre())
+        throw out_of_range("j est trop gros !");
+    return mat(i,j) && mat(j,i);
+}
+
+bool isInside(size_t nb, vector<size_t> V){
+    for(int i=0; i<V.size(); i++)
+        if(nb == V[i])
+            return true;
+    return false;
+}
+
+vector<size_t> Graphe::dijkstra(size_t i) const {
+    vector<size_t> P({i});
+    size_t j;
+
+    while(j n'est pas dans P)
+}
+ii
