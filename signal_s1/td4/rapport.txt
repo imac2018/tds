@@ -1,0 +1,24 @@
+Si l'on a h(t) et x(t) deux signaux, avec N la longueur de x(t), alors la
+convolution circulaire entre h et x est la convolution linéaire entre h et xp, 
+où xp est le signal x prolongé pérodiquement avec périodicité N.
+On l'appelle convolution circulaire car on imagine que l'axe du temps de x
+est un cercle de périmètre N, d'où que, quand on fait un tour complet, on revient au début de x.
+
+z  = convol(x,y);
+z' = ifft(fft(x).*fft(y))
+
+A priori, z et z' devraient être égaux, parce qu'un produit dans le domaine
+fréquentiel est une convolution dans le domaine temporel.
+Le problème est que nous utilisons la transformée de Fourier Discrète, et que
+le produit de deux TFDs équivaut à une
+convolution circulaire entre les deux signaux originaux.
+
+On remarque que z' est 2 fois moins long que z. En étendant la longueur de x
+et y, on se rapprocherait d'une convolution linéaire, parce que l'intervalle
+sur lequel x et y seraient répétés lors de la convolution circulaire serait
+de plus en plus réduit.
+D'où que, si on fait que x et y soient 2 fois plus longs, on atteint
+l'équivalent d'une convolution linéaire. Pour cela, si N est la longueur de x
+et de y, on peut ajouter N zéros à la fin de ces signaux.
+Accessoirement, cette technique s'appelle le "Zero-padding".
+Le résultat, c'est que la TFD est calculée sur plus de points, et à ce moment z et z' sont strictement égaux.

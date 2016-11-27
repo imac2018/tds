@@ -13,8 +13,7 @@ endfunction
 x=xn(1/16);
 tfx=fft(x);
 //subplot(221);
-//title("x");
-//plot(x);
+//title("x");plot(x);
 //subplot(222);
 //title("TF(x)");
 //plot(tfx); //Symétrie horizontale triviale !
@@ -43,23 +42,29 @@ z = convol(x,y);
 tfy=fft(y);
 zprime=ifft(tfx.*tfy);
 //zprime=ifft(tfx'*tfy); // #ArtAbstrait
-//subplot(211);
-//plot(z, "b");
-//subplot(212);
-//plot(zprime, "r");
+subplot(211);
+plot(z, "b");
+plot(zprime, "r");
 // zprime ressemble de plus en plus à z quand on regarde à droite.
 
 
 // Ex. 5
-I=(N+1):(N+1+N);
+NB_ZEROS=N; // N => approximation parfaite, moins => approximation moins parfaite.
+I=(N+1):(N+1+NB_ZEROS);
 x(I) = 0;
 y(I) = 0;
 tfx=fft(x);
 tfy=fft(y);
 //z = convol(x,y);
 zprime=ifft(tfx.*tfy);
-//subplot(211);
+subplot(212);
 plot(z, "b");
-//subplot(212);
 plot(zprime, "r");
+// C'est l'effet du zéro-padding ! Slide 10 :
+// http://mailhes.perso.enseeiht.fr/documents/TNS_Mailhes.pdf
+// En gros, l'ajout de zéros permet de représenter la TF sur plus de points,
+// donc elle est plus précise.
+// Comme on a N valeurs, si on ajoute N zéros à la fin du signal, 
+// on a une approximation parfaite (qui se dégrade si on réduit le nombre de 
+// zéros ajoutés)
 
