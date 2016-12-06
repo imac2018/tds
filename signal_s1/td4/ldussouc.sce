@@ -46,7 +46,7 @@ z_n = convol(x_n, y_n)
 
 subplot(424)
 plot(z_n,'b')
-
+plot(zprim_n,'m')
 xtitle('z_n', 'X axis', 'Y axis', 'Z axis', boxed = 1 );
 
 // exo 4

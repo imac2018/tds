@@ -30,11 +30,11 @@ public:
   ~Point(){
     Point::num--;
   }
-  static void distance (const Point & p1, const Point & p2){
+ double distance (const Point & p2){
     double distance;
-    distance = p1.x - p2.x / p1.y - p2.y;
-    cout << distance << endl;
-  }
+    distance = x - p2.x / y - p2.y;
+    return distance;
+ }
   double getX() const{
     return x;
   }
@@ -43,6 +43,16 @@ public:
   }
   void changeName(string name) {
     this->name = name;
+  }
+
+  double operator-(const Point & a){
+    double distance;
+    distance = x - a.x / y - a.y;
+    return distance;
+  }
+
+  friend std::ostream & operator<<(std::ostream & co, const Point & a){
+    return co << a.x << ' '<< a.y;
   }
 };
 
@@ -58,26 +68,21 @@ public:
   Point a;
   double radius;
   Circle(Point a, double radius) : a(a), radius(radius){}
-  Circle(Rectangle const &r){
-    r.a * 6 * this->a;
-
-  }
+  // Circle(Rectangle const &r){
+  //   r.a * 6 * this->a;
+  // }
 };
-
-// to convert :  Rectangle(Circle & )
 
 unsigned int Point::num = 0;
 
 int main(){
 
-  Point a(5,7), b(7,5), c(3,4), d(8,1);
+  Point a(5,7);
+  Point b(7,5);
 
-  Rectangle rectA(a, b, c, d);
-
-  rectA.print();
-
-  Circle circA(a, 50);
+  std::cout << a.distance(b) << std::endl;
+  std::cout << a-b << std::endl;
+  std::cout << a << std::endl;
 
   return 0;
-
 }
