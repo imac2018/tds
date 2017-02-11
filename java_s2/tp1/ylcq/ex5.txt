@@ -38,7 +38,7 @@ J'ai écrit dans les fichiers td01-pascal2.c et Pascal2.java les versions
 optimisées à la main.
 
 Voici les nouveaux résultats, en augmentant encore le 1er argument de pascal()
-pour allonger les temps d'exécution:
+pour garder des temps d'exécution longs:
 
 $ gcc -Wall -pedantic -Wextra -std=c99 -Ofast -march=native td01-pascal2.c
 $ time ./a.exe

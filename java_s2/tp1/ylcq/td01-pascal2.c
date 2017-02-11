@@ -9,6 +9,9 @@
 #if __GNUC__ && (__x86_64__ || __i386)
 #include <x86intrin.h>
 #define PASCAL_X86INTRIN 1
+#elif _MSC_VER && (_M_IX86 | _M_X64)
+#include <intrin.h>
+#define PASCAL_X86INTRIN 1
 #else
 #define PASCAL_X86INTRIN 0
 #endif
@@ -45,8 +48,11 @@ int pascal(int_fast32_t nBut, int_fast32_t pBut){
 
 #else
 
+
+#if !__AVX2__
+
 // Cette version fait usage explicite des instructions SSE2 et bat toutes les
-// autres à plate couture (et heureusement, sinon y'a plus qu'à se tirer 
+// autres à plate couture (et heureusement, sinon on se tire
 // une balle).
 // Etrangement, même avec toutes les options d'optimisation, mon GCC
 // n'en a pas généré de lui-même.
@@ -81,7 +87,39 @@ int pascal(int_fast32_t nBut, int_fast32_t pBut){
     return result;
 }
 
-#endif
+#else // !__AVX2__
+
+// Encore une autre avec AVX2 ! Supposément 2x plus rapide qu'avec SSE2.
+int pascal(int_fast32_t nBut, int_fast32_t pBut){
+    int32_t *tab = calloc(nBut+1+8+8, sizeof(int32_t));
+    assert(tab); // Pas très correct, mais ça fait le boulot.
+    tab += 8;
+
+    int_fast32_t n;
+    tab[0] = 1;
+    for(n=1 ; n<=pBut ; ++n) {
+        tab[n] = 1;
+        for(int_fast32_t i=n-1-7 ; i>-8 ; i-=8) {
+            __m256i d = _mm256_loadu_si256((__m256i*)(tab+i));
+            __m256i s = _mm256_loadu_si256((__m256i*)(tab+i-1));
+            _mm256_storeu_si256((__m256i*)(tab+i), _mm256_add_epi32(d,s));
+        }
+    }
+    for(    ; n<=nBut ; ++n) {
+        for(int_fast32_t i=pBut-7 ; i>-8 ; i-=8) {
+            __m256i d = _mm256_loadu_si256((__m256i*)(tab+i));
+            __m256i s = _mm256_loadu_si256((__m256i*)(tab+i-1));
+            _mm256_storeu_si256((__m256i*)(tab+i), _mm256_add_epi32(d,s));
+        }
+    }
+
+    int result = tab[pBut];
+    free(tab-4);
+    return result;
+}
+#endif // !__AVX2__
+
+#endif // PASCAL_X86INTRIN
 
 int main() {
     printf(" Cn, p = %d\n", pascal(30000000*2, 250));
