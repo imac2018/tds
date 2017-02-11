@@ -1,6 +1,6 @@
 public class PrintArgs {
     public static void main(String[] args) {
-/usr/bin/bash: s: command not found
+        for(String arg : args)
             System.out.println(arg);
     }
 }

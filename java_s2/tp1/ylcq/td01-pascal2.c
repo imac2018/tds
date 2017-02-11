@@ -3,17 +3,18 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
+#include <string.h>
 #include <stdint.h>
 #include <assert.h>
 
 #if __GNUC__ && (__x86_64__ || __i386)
-#include <x86intrin.h>
-#define PASCAL_X86INTRIN 1
-#elif _MSC_VER && (_M_IX86 | _M_X64)
-#include <intrin.h>
-#define PASCAL_X86INTRIN 1
+    #include <x86intrin.h>
+    #define PASCAL_X86INTRIN 1
+#elif _MSC_VER && (_M_IX86 || _M_X64)
+    #include <intrin.h>
+    #define PASCAL_X86INTRIN 1
 #else
-#define PASCAL_X86INTRIN 0
+    #define PASCAL_X86INTRIN 0
 #endif
 
 
@@ -26,8 +27,8 @@
 // jamais besoin de calculer ce qui est à droite de celle-ci.
 //
 // Utiliser des int_fast32_t est (étrangement) 3x plus rapide que uint_fast32_t.
-int pascal(int_fast32_t nBut, int_fast32_t pBut){
-    int32_t *tab = malloc((nBut+1) * sizeof(int32_t));
+int pascal(int_fast32_t nBut, int_fast32_t pBut) {
+    int32_t *tab = malloc((pBut+1) * sizeof(int32_t));
     assert(tab); // Pas très correct, mais ça fait le boulot.
 
     int_fast32_t n;
@@ -46,21 +47,30 @@ int pascal(int_fast32_t nBut, int_fast32_t pBut){
     return result;
 }
 
-#else
-
+#else // !PASCAL_X86INTRIN
 
 #if !__AVX2__
 
 // Cette version fait usage explicite des instructions SSE2 et bat toutes les
-// autres à plate couture (et heureusement, sinon on se tire
-// une balle).
+// autres à plate couture (et heureusement, sinon je me tire une balle).
 // Etrangement, même avec toutes les options d'optimisation, mon GCC
 // n'en a pas généré de lui-même.
 //
-// Référence des fonctions _mm* : Intel Intrinsics Guide.
+// En gros ça ne fait pas grand chose de différent par rapport au code
+// précédent, sinon que les additions se font sur 4 entiers contigus à la
+// fois.
+// On pourrait faire encore plus fort en se creusant la tête pour que les
+// loads/stores soient "alignés" plutôt que "non alignés".
+// Les loads/stores alignés sont plus rapides, mais lèvent une exception
+// si l'adresse n'est pas un multiple de 16.
+// "Unaligned"        => "Aligned"
+// _mm_loadu_si128()  => _mm_load_si128()
+// _mm_storeu_si128() => _mm_store_si128()
+//
+// Voir l'Intel Intrinsics Guide.
 
 int pascal(int_fast32_t nBut, int_fast32_t pBut){
-    int32_t *tab = calloc(nBut+1+4+4, sizeof(int32_t));
+    int32_t *tab = calloc(pBut+1+4+4, sizeof(int32_t));
     assert(tab); // Pas très correct, mais ça fait le boulot.
     tab += 4;
 
@@ -91,7 +101,7 @@ int pascal(int_fast32_t nBut, int_fast32_t pBut){
 
 // Encore une autre avec AVX2 ! Supposément 2x plus rapide qu'avec SSE2.
 int pascal(int_fast32_t nBut, int_fast32_t pBut){
-    int32_t *tab = calloc(nBut+1+8+8, sizeof(int32_t));
+    int32_t *tab = calloc(pBut+1+8+8, sizeof(int32_t));
     assert(tab); // Pas très correct, mais ça fait le boulot.
     tab += 8;
 

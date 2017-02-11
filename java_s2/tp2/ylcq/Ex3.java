@@ -22,14 +22,14 @@ public class Ex3 {
         // }
         //
         // 4.
-        byte[] ip = BytesFromIPv4String(args[0]);
+        byte[] ip = bytesFromIPv4String(args[0]);
         if(ip != null)
-            System.out.println(UnsignedBytesToString(ip, "."));
+            System.out.println(unsignedBytesToString(ip, "."));
         else
             System.out.println("Not an IPv4 address!");
     }
     
-    public static byte[] BytesFromIPv4String(String s) {
+    public static byte[] bytesFromIPv4String(String s) {
         String b = "(\\d{1,3})"; // b comme byte
         String d = "\\.";           // d comme dot
         Matcher m = Pattern.compile(b+d+b+d+b+d+b).matcher(s);
@@ -47,7 +47,7 @@ public class Ex3 {
         return ip;
     }
 
-    public static String UnsignedBytesToString(byte[] bytes, String sep) {
+    public static String unsignedBytesToString(byte[] bytes, String sep) {
         String s = new String();
         for(int i=0 ; i<bytes.length ; ++i)
             s = s + (((int)bytes[i])&0xff) + (i<bytes.length-1 ? sep : "");

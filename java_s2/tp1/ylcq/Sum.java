@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Sum {
     // 1.
-    public static int[] StringsToInts(String[] s) {
+    public static int[] stringsToInts(String[] s) {
         int[] out = new int[s.length];
         for(int i=0 ; i<out.length ; ++i)
             out[i] = Integer.parseInt(s[i]);
@@ -17,7 +17,7 @@ public class Sum {
     // On a une jolie NumberFormatException.
     //
     // 4.
-    public static int IntSum(int[] ints) {
+    public static int intSum(int[] ints) {
         int sum = 0;
         for(int a : ints)
             sum += a;
@@ -28,6 +28,6 @@ public class Sum {
         if(args.length <= 0)
             System.err.println("Warning : No argument was given.");
         System.out.println("integers: " + Arrays.toString(args));
-        System.out.println("sum: " + IntSum(StringsToInts(args)));
+        System.out.println("sum: " + intSum(stringsToInts(args)));
 	}
 }
