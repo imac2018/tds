@@ -124,7 +124,7 @@ int pascal(int_fast32_t nBut, int_fast32_t pBut){
     }
 
     int result = tab[pBut];
-    free(tab-4);
+    free(tab-8);
     return result;
 }
 #endif // !__AVX2__
