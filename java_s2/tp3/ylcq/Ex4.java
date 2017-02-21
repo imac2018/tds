@@ -1,35 +1,34 @@
+import java.util.Arrays;
+
 public class Ex4 {
     public static void main(String[] args) {
+    	int[] foo = new int[]{1,5,2,6,8,2,3,5,7,5};
+        System.out.println(Arrays.toString(foo));
+    	sort(foo);
+        System.out.println(Arrays.toString(foo));
     }
     // 1.
-    public static void swap(int[] array, int index1, int index2) {
-        int tmp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = tmp;
+    public static void swap(int[] array, int i, int j) {
+        int tmp  = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
     }
     // 2.
     // 3.
     public static int indexOfMin(int[] array, int i1, int i2) {
-        
+        if(i1 > i2)
+            throw new IllegalArgumentException("(i1 <= i2) is expected!");
+
+        int mini = i1;
+    	for(int i=i1 ; i<i2 ; ++i)
+	        if(array[i] < array[mini])
+	            mini = i;
+
+	    return mini;
     }
     // 4.
     public static void sort(int[] array) {
-        //trouver le min
-        //swap()
-        sort(array, 0, array.length);
+    	for(int i=0 ; i<array.length ; ++i)
+	        swap(array, i, indexOfMin(array, i, array.length));
     }
-    private static void sort(int[] array, int l, int r) {
-        if(l >= r)
-            return;
-        if(l == r-1) {
-            int i = indexOfMin(array, l, r);
-            int j = i==l ? r : l;
-            swap(array, i, j);
-            return;
-        }
-        int m = l+(r-l)/2;
-        sort(array, l, m);
-        sort(array, m, r);
-    }
-
 }
