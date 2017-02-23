@@ -21,14 +21,14 @@ public class Ex4 {
 
         int mini = i1;
     	for(int i=i1 ; i<i2 ; ++i)
-	        if(array[i] < array[mini])
-	            mini = i;
+	    if(array[i] < array[mini])
+	        mini = i;
 
-	    return mini;
+	return mini;
     }
     // 4.
     public static void sort(int[] array) {
     	for(int i=0 ; i<array.length ; ++i)
-	        swap(array, i, indexOfMin(array, i, array.length));
+	    swap(array, i, indexOfMin(array, i, array.length));
     }
 }
