@@ -23,6 +23,7 @@ public class ArrayShoppingCart {
     public int numberOfBooks() { return book_count; }
 
     // 4.
+    // XXX Implémenter toString() et s'en servir à la place !
     public void displayContents() {
         System.out.println("Number of books: " + numberOfBooks());
         for(int i=0 ; i<numberOfBooks() ; ++i)
@@ -51,7 +52,14 @@ public class ArrayShoppingCart {
         for(int i=0 ; i<numberOfBooks() ; ++i) {
             if(!b.equals(books[i]))
                 continue;
-            swapBooksAt(i, book_count-1);
+            int lasti = book_count-i;
+            while(b.equals(books[lasti]) && lasti>0) 
+                --lasti;
+            if(lasti < i) {
+                book_count = i;
+                break;
+            }
+            swapBooksAt(i, lasti);
             --book_count;
             --i;
         }

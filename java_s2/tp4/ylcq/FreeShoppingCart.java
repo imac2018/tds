@@ -29,9 +29,11 @@ public class FreeShoppingCart {
         if(numberOfBooks() <= 0)
             return Optional.empty();
 
-        Book longestTitleBook = books.get(0);
-        Book cur = longestTitleBook;
-        for(Iterator<Book> it = books.iterator() ; it.hasNext() ; cur = it.next()) {
+        Iterator<Book> it = books.iterator();
+        Book cur = it.next();
+        Book longestTitleBook = cur;
+        while(it.hasNext()) {
+            cur = it.next();
             final int curlen = cur.getTitle().length();
             final int lnglen = longestTitleBook.getTitle().length();
             if(curlen > lnglen)
@@ -67,6 +69,27 @@ public class FreeShoppingCart {
     }
 
     // 7.
-    // XXX Expliquer ça !
-    // Non, ça n'améliore pas la complexité.
+    // Le programme compile toujours parce que :
+    // - get(int) est implémentée pour LinkedList (visiblement);
+    // - C'est le but d'Iterator de marcher pour toutes collections;
+    // - Par déduction, la boucle foreach marche.
+    //
+    // Non, ça n'améliore pas la complexité dans le pire cas. On ne peut pas
+    // empêcher la totalité des éléments d'être parcourue.
+    //
+    // 8.
+    // Bah sa complexité ne change pas.
+    public void removeFirstOccurence_Iterator(Book b) {
+        for(Iterator<Book> it = books.iterator() ; it.hasNext() ;) {
+            if(b.equals(it.next())) {
+                it.remove();
+                break;
+            }
+        }
+    }
+    // 9.
+    // On doit utiliser la boucle foreach quand on veut rapidement itérer
+    // sur une collection.
+    // On doit utiliser un itérateur si on veut retirer des éléments à la
+    // volée (si la méthode remove() de la collection ne suffit pas).
 }
