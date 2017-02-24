@@ -5,9 +5,15 @@ import java.util.Objects;
 
 // 1.
 public class FreeShoppingCart {
+
     private LinkedList<Book> books;
-    public FreeShoppingCart() { books = new LinkedList<Book>(); }
-    public void add(Book b) { books.add(b); }
+
+    public FreeShoppingCart() { 
+        books = new LinkedList<Book>(); 
+    }
+    public void add(Book b) { 
+        books.add(b);
+    }
     // 2.
     public int numberOfBooks() { return books.size(); }
     // 3.
@@ -74,7 +80,7 @@ public class FreeShoppingCart {
     // Le programme compile toujours parce que :
     // - get(int) est implémentée pour LinkedList (visiblement);
     // - C'est le but d'Iterator de marcher pour toutes collections;
-    // - Par déduction, la boucle foreach marche.
+    // - La boucle foreach marche car elle compile vers un Iterator.
     //
     // Non, ça n'améliore pas la complexité dans le pire cas. On ne peut pas
     // empêcher la totalité des éléments d'être parcourue.

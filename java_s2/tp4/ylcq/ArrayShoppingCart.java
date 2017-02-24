@@ -78,7 +78,6 @@ public class ArrayShoppingCart {
 
             swapBooksAt(i, lasti);
             --book_count;
-            --i;
         }
     }
     public void swapBooksAt(int i, int j) {
