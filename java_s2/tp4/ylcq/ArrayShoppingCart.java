@@ -47,7 +47,6 @@ public class ArrayShoppingCart {
     }
 
     // 6.
-    // XXX Boucle infinie si b == le dernier élément.
     public void removeAllOccurences(Book b) {
         for(int i=0 ; i<numberOfBooks() ; ++i) {
             if(!b.equals(books[i]))
