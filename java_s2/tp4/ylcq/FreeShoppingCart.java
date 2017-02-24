@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Iterator;
+import java.util.Objects;
 
 // 1.
 public class FreeShoppingCart {
@@ -65,6 +66,7 @@ public class FreeShoppingCart {
     // 6. 
     // Pire cas : O(n). Moyenne : O(n/2).
     public void removeFirstOccurence(Book b) {
+        Objects.requireNonNull(b);
         books.remove(b);
     }
 
@@ -80,6 +82,7 @@ public class FreeShoppingCart {
     // 8.
     // Bah sa complexité ne change pas.
     public void removeFirstOccurence_Iterator(Book b) {
+        Objects.requireNonNull(b);
         for(Iterator<Book> it = books.iterator() ; it.hasNext() ;) {
             if(b.equals(it.next())) {
                 it.remove();
@@ -92,4 +95,19 @@ public class FreeShoppingCart {
     // sur une collection.
     // On doit utiliser un itérateur si on veut retirer des éléments à la
     // volée (si la méthode remove() de la collection ne suffit pas).
+    //
+    //
+    // (Utilitaires pour les tests :)
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Number of books: ").append(numberOfBooks()).append("\n");
+        for(Book b : books)
+            sb.append(b).append("\n");
+        return sb.toString();
+    }
+    public void displayContents() {
+        System.out.println(this);
+    }
+
 }

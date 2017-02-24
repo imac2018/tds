@@ -1,7 +1,8 @@
 import java.util.Optional;
+import java.util.Objects;
 
 public class ArrayShoppingCart {
-    // 1. non !
+    // 1. Non !
     private Book[] books;
     private int book_count;
 
@@ -10,24 +11,27 @@ public class ArrayShoppingCart {
         books = new Book[max];
         book_count = 0;
     }
-    public ArrayShoppingCart() { this(100); }
+    // Dans le main(), le test cause une ArrayIndexOutOfBoundsException.
+    // Il faut que add() lance une exception appropriée, plus explicatrice.
     public void add(Book b) {
         if(book_count >= books.length)
             throw new IllegalStateException("Limite dépassée, impossible de faire l'ajout");
         books[book_count++] = b;
     }
-    // Dans le main(), le test cause une ArrayIndexOutOfBoundsException.
-    // Il faut que add() lance une exception appropriée, plus explicatrice.
-    //
     // 3.
     public int numberOfBooks() { return book_count; }
 
     // 4.
-    // XXX Implémenter toString() et s'en servir à la place !
-    public void displayContents() {
-        System.out.println("Number of books: " + numberOfBooks());
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Number of books: ").append(numberOfBooks()).append("\n");
         for(int i=0 ; i<numberOfBooks() ; ++i)
-            System.out.println(books[i]);
+            sb.append(books[i]).append("\n");
+        return sb.toString();
+    }
+    public void displayContents() {
+        System.out.println(this);
     }
 
     // 5.
@@ -47,17 +51,31 @@ public class ArrayShoppingCart {
     }
 
     // 6.
+    // Ouais c'est un peu intimidant, mais l'idée est simple.
+    // Quand on tombe sur un livre égal à b, on l'échange avec le
+    // dernier livre du tableau, et on décrémente book_count.
+    // Ainsi, ça fait comme si on avait retiré le livre, et ça
+    // évite de décaler toutes les cases.
+    // Pour empêcher une boucle infinie si le dernier livre est aussi
+    // égal à b, il faut prendre quelques précautions, d'où que le
+    // corps de la boucle ne soit pas simple.
     public void removeAllOccurences(Book b) {
-        for(int i=0 ; i<numberOfBooks() ; ++i) {
+        Objects.requireNonNull(b);
+        for(int i=0 ; i<book_count ; ++i) {
+
             if(!b.equals(books[i]))
                 continue;
+
+            // lasti devient l'index du book à échanger avec celui en i.
             int lasti = book_count-i;
             while(b.equals(books[lasti]) && lasti>0) 
                 --lasti;
+
             if(lasti < i) {
                 book_count = i;
                 break;
             }
+
             swapBooksAt(i, lasti);
             --book_count;
             --i;
@@ -68,5 +86,4 @@ public class ArrayShoppingCart {
         books[i] = books[j];
         books[j] = tmp;
     }
-
 }
