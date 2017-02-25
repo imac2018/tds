@@ -107,7 +107,7 @@ public class FreeShoppingCart {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Number of books: ").append(numberOfBooks()).append("\n");
+        sb.append("Nombre de livres: ").append(numberOfBooks()).append("\n");
         for(Book b : books)
             sb.append(b).append("\n");
         return sb.toString();

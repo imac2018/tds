@@ -4,13 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Book[] books = getSomeBookArray();
         Book[] no_books = new Book[0];
-        System.out.println("\n\n--- TEST ArrayShoppingCart (some books) ---\n");
+        System.out.println("\n\n--- TEST ArrayShoppingCart (quelques livres) ---\n");
         testArrayShoppingCart(books);
-        System.out.println("\n\n--- TEST ArrayShoppingCart (no books) ---\n");
+        System.out.println("\n\n--- TEST ArrayShoppingCart (aucun livre) ---\n");
         testArrayShoppingCart(no_books);
-        System.out.println("\n\n--- TEST FreeShoppingCart (some books) ---\n");
+        System.out.println("\n\n--- TEST FreeShoppingCart (quelques livres) ---\n");
         testFreeShoppingCart(books);
-        System.out.println("\n\n--- TEST FreeShoppingCart (no books) ---\n");
+        System.out.println("\n\n--- TEST FreeShoppingCart (aucun livre) ---\n");
         testFreeShoppingCart(no_books);
     }
 
@@ -43,9 +43,9 @@ public class Main {
             return;
 
         Book removeMe = books[2];
-        System.out.println("Removed 1st instance of `"+removeMe+"'...");
+        System.out.println("Retiré la 1ère occurence de `"+removeMe+"'...");
         cart.removeFirstOccurence(removeMe);
-        System.out.println("Removed 1st instance of `"+removeMe+"'...");
+        System.out.println("Retiré la 1ère occurence de `"+removeMe+"'...");
         cart.removeFirstOccurence_Iterator(removeMe);
         cart.displayContents();
     }
@@ -62,7 +62,7 @@ public class Main {
 
         Book removeMe = books[2];
         cart.removeAllOccurences(removeMe);
-        System.out.println("\nRemoved all instances of `"+removeMe+"'...\n");
+        System.out.println("\nRetiré tous les `"+removeMe+"'...\n");
         cart.displayContents();
     }
 }
