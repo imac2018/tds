@@ -35,13 +35,11 @@ public class ArrayShoppingCart {
 	
 	public int numberOfBooks(){
 		
-		int countBooks = this.books.length;
-		
 		for(int i = 0; i < this.books.length; ++i)
 			if(this.books[i] == null)
-				--countBooks;
+				--this.count;
 		
-		return countBooks;
+		return this.count;
 	}
 	
 	public void longestTitle(){
@@ -64,9 +62,37 @@ public class ArrayShoppingCart {
 	public void getShoppingCartDetails(){
 		
 		System.out.println("Nombre de livres stockÃ©s : "+ numberOfBooks());
-		
+	
 		for(int i = 0; i < this.count; ++i)
 			System.out.println(this.books[i]);
+	}
+	
+	// C'est pas une très belle fonction, c'est surement pas opti mais ça fonctionne.
+	public void removeAllOccurences(Book b){
+		
+		System.out.println();
+		
+		for(int i = 0; i < this.count; ++i){
+			
+			if(this.books[i].equals(b)){
+				
+				for(int j = i+1; j < this.count; ++j){
+
+					if( this.books[i].equals(this.books[j])){
+						
+						for(int k = j+1; k< this.count; ++k){
+							
+							if(this.books[k] == null)
+								this.books[j] = null;
+							else
+								this.books[j] = this.books[k];
+						}
+						
+						--this.count;				
+					}			
+				}
+			}				
+		}
 	}
 
 	public static void main(String[] args) {
@@ -75,16 +101,20 @@ public class ArrayShoppingCart {
 		
 		Book b1 = new Book("Da Java Codeee", "Duke Brown");
 		Book b2 = new Book("Da Java Code", "Duke Brown");
-		//Book b3 = new Book("Da Java Code", "Duke Brown");
-		//Book b4 = new Book("Da Java Code", "Duke Brown");
+		Book b3 = new Book("Da Java Code", "Duke Brown");
+		// Book b4 = new Book("Da Java Code", "Duke Brown");
 		
 		newArray.add(b1);
 		newArray.add(b2);
-		//newArray.add(b3);
-		//newArray.add(b4);
+		newArray.add(b3);
+		// newArray.add(b4);
 		
 		newArray.getShoppingCartDetails();
-		newArray.longestTitle();
+		// newArray.longestTitle();
+		
+		newArray.removeAllOccurences(b2);
+		newArray.getShoppingCartDetails();
+		
 	}
 }
 
