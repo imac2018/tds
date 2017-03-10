@@ -39,5 +39,5 @@ public class Ring extends Circle {
     }
     // 3.3
     // XXX ??? 
-
+    // Les objects mutables c'est chiant
 }

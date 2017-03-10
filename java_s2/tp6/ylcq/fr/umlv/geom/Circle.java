@@ -41,7 +41,7 @@ class Circle {
     public boolean contains(Point p) {
         int dx = p.getX() - center.getX();
         int dy = p.getY() - center.getY();
-        return Math.sqrt(dx*dx + dy*dy) <= radius;
+        return dx*dx + dy*dy <= radius*radius;
     }
     // 11. Wow ! Le '...' veut dire qu'on reçoit un nombre 
     // variable d'arguments !
