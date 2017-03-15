@@ -38,9 +38,14 @@ public class Circle {
 		return Math.PI * this.rayon * this.rayon; 
 	}
 	
+	public double getDistance(Point p){
+		
+		return this.centre.getX() * this.centre.getX() - p.getX()*p.getX() + this.centre.getY() * this.centre.getY() - p.getY()*p.getY(); 
+	}
+	
 	public boolean contains(Point p){
 		
-		if (((this.centre.getX() * this.centre.getX()) - (p.getX()*p.getX())) + ((this.centre.getY() * this.centre.getY()) - (p.getY()*p.getY())) == this.rayon* this.rayon)
+		if ( getDistance(p) <= this.rayon* this.rayon)
 			return true;
 		else
 			return false;

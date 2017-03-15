@@ -33,4 +33,22 @@ public class Ring extends Circle{
 		
 		return super.toString() + " RI : " + this.rayonInterne;
 	}
+	
+	@Override
+	public boolean contains(Point p){
+		
+		if (super.contains(p) == true && super.getDistance(p) <= this.rayonInterne * this.rayonInterne   )
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean contains(Point p, Ring... rings){
+		
+		for(Ring c : rings)
+			if (c.contains(p) == true)
+				return true;
+		
+		return false;
+	}
 }

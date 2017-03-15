@@ -31,8 +31,7 @@ public class Main {
 	    System.out.println(p);
 	    System.out.println(c);
 
-	    System.out.println(c1 + "zboub  " + c2);
-	    
+	    System.out.println(c1 + "  " + c2);
 	    
 	}
 }
