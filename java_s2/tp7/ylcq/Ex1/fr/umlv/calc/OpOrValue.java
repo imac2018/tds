@@ -45,6 +45,7 @@ public class OpOrValue {
     }
   
     // 3.
+    // 6. Il faut utiliser Iterator.
     public static OpOrValue parse(Scanner s) {
         while(!s.hasNext())
             throw new IllegalStateException("Missing op or value !");
@@ -60,8 +61,15 @@ public class OpOrValue {
             default: throw new IllegalStateException("Unknown op !");
             }
             OpOrValue l = parse(s);
-            OpOrValue r = parse(s);
-            return new OpOrValue(op, l, r);
+            return new OpOrValue(op, l, parse(s));
         }
+    }
+    // 5.
+    public @Override String toString() {
+        switch(operator) {
+        case OP_ADD: return "(" + left + " + " + right + ")";
+        case OP_SUB: return "(" + left + " - " + right + ")";
+        }
+        return value+"";
     }
 }

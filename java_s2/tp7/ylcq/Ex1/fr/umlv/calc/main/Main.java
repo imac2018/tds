@@ -11,6 +11,9 @@ public class Main {
         );
         System.out.println(expression.eval());
         Scanner s = new Scanner(System.in);
+        System.out.println("Type an expression...");
         System.out.println(OpOrValue.parse(s).eval());
+        System.out.println("Type another expression...");
+        System.out.println(OpOrValue.parse(s));
     }
 }
