@@ -47,7 +47,7 @@ public class OpOrValue {
     // 3.
     // 6. Il faut utiliser Iterator.
     public static OpOrValue parse(Scanner s) {
-        while(!s.hasNext())
+        if(!s.hasNext()) //while ham shake spire boy
             throw new IllegalStateException("Missing op or value !");
 
         String word = s.next();
