@@ -15,10 +15,11 @@ t = -100:0.1:100
 f = t
 
 // Ex 1.
-// sigma = 5
-// plot(tfx(f), "r")
-//sigma = 15
-// plot(tfx(f), "b")
+subplot(411);
+sigma = 5
+plot(tfx(f), "r")
+sigma = 15
+plot(tfx(f), "b")
 
 // Ex 2.
 // Oui, il est théoriquement possible de reconstruire parfaitement x(t) à partir
@@ -35,13 +36,13 @@ function ret = tfXe(f)
     ret = somme/Te
 endfunction
 
-subplot(311); 
+subplot(412); 
 e=120; Te=1/e; f=(-e):e; plot(tfXe(f), "r");
 e=30;  Te=1/e; f=(-e):e; plot(tfXe(f), "m");
 e=70;  Te=1/e; f=(-e):e; plot(tfXe(f), "b");
 
 // Ex 4.
-subplot(312);
+subplot(413);
 plot(tfx(f), "r");
 plot(Te*tfXe(f), "b");
 
@@ -51,6 +52,6 @@ function mask = passebas(f, Te)
     mask(find(f >  1/(2*Te))) = 0;
 endfunction
 
-subplot(313);
+subplot(414);
 plot(tfx(f), "r");
 plot(Te*tfXe(f).*passebas(f, Te), "b");

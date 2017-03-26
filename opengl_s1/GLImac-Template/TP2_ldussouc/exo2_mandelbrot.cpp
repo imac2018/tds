@@ -30,8 +30,10 @@ int main(int argc, char** argv) {
     std::cout << "GLEW Version : " << glewGetString(GLEW_VERSION) << std::endl;
 
     FilePath applicationPath(argv[0]);
-    Program program = loadProgram(applicationPath.dirPath() + "shaders/color2D.vs.glsl",
-                                  applicationPath.dirPath() + "shaders/color2D.fs.glsl");
+    Program program = loadProgram(
+      applicationPath.dirPath() + "shaders/color2D.vs.glsl",
+      applicationPath.dirPath() + "shaders/color2D.fs.glsl"
+    );
     program.use();
 
     /*********************************
@@ -39,7 +41,6 @@ int main(int argc, char** argv) {
      *********************************/
 
     GLuint vbo, vao;
-
     // Gestion du VBO
 
     glGenBuffers(1, &vbo);

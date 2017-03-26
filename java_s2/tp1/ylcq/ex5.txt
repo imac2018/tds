@@ -1,0 +1,71 @@
+Le 1er argument donné à pascal() a été augmenté (à 300000) pour 
+que l'exécution soit plus longue (donc que le temps de démarrage 
+et d'allocation du tableau devienne négligeable).
+Voici les résultats de mes benchmarks sur ma machine:
+
+$ javac -version
+javac 1.8.0_121
+
+$ gcc --version
+gcc.exe (tdm64-1) 4.9.2
+
+$ gcc -Ofast -march=native td01-pascal.c  # Optimisé, sinon il met plus d'1 minute.
+$ time ./a.exe
+ Cn, p = 1709940864
+
+real    0m44.169s
+user    0m0.000s
+sys     0m0.015s
+
+$ javac Pascal.java
+$ time java Pascal
+ Cn, p = 1709940864
+
+real    0m22.579s
+user    0m0.000s
+sys     0m0.000s
+
+
+Ici, la version Java est environ 2 fois plus rapide que la version C, avec
+les meilleures options d'optimisation ! A tous les coups c'est le JIT qui
+optimise les boucles dans lesquelles on passe la majorité du temps.
+Mon hypothèse est que certaines opérations peuvent être changées, mais
+seulement avec les connaissances de l'exécution et non de la compilation (d'où 
+que le JIT de Java gagne).
+
+Cependant, la fonction pascal() n'est pas optimale pour ce qu'elle fait.
+J'ai écrit dans les fichiers td01-pascal2.c et Pascal2.java les versions
+optimisées à la main.
+
+Voici les nouveaux résultats, en augmentant encore le 1er argument de pascal()
+pour garder des temps d'exécution longs:
+
+$ gcc -Wall -pedantic -Wextra -std=c99 -Ofast -march=native td01-pascal2.c
+$ time ./a.exe
+ Cn, p = -2109535360
+
+real    0m2.891s
+user    0m0.000s
+sys     0m0.015s
+
+$ javac Pascal2.java
+$ time java Pascal2
+ Cn, p = -2109535360
+
+real    0m7.793s
+user    0m0.000s
+sys     0m0.015s
+
+
+La conclusion qu'on peut tirer est que, à algorithmes égaux, un programme en C
+soigneusement écrit et optimisable par le compilateur est plus performant que
+le programme Java. 
+Cependant, aboutir au code C qui bat la version Java m'a demandé du temps, et
+ce temps, dans des conditions "réelles", aurait été mieux dépensé à continuer
+le développement du programme. Il apparaît que, dans le cas moyen,
+un programme Java est moins dur à écrire, plus safe, et plus performant - tandis
+que le C a le dernier mot si on force vraiment la main.
+
+Mais reconnaissons-le, les cas sont poussés à l'extrême. Dans un programme
+"normal", avec entrées raisonnables, l'utilisateur ne remarquerait même pas 
+la différence.
