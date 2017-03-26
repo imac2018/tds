@@ -12,7 +12,7 @@ public class LinkedLink<E> {
     public LinkedLink(E value) {
         tail = root = new Link<E>(value);
     }
-    public LinkedLink add(E value) {
+    public LinkedLink<E> add(E value) {
         tail = new Link<E>(value, tail);
         return this;
     }
@@ -34,10 +34,19 @@ public class LinkedLink<E> {
         }
         return Optional.empty();
     }
-    // Ex3.4 XXX Pourquoi prendre un Object ?
+    // Ex3.4 Pourquoi prendre un Object ?
+    // Aucune idée a priori, mais les Internets le savent !
+    // http://stackoverflow.com/a/859239
+    // http://stackoverflow.com/a/2994356
+    // Le résumé, c'est que rien ne force notre paramètre a être
+    // du même type que les éléments de notre liste : Il y a juste
+    // besoin qu'il aie le potentiel d'égalité.
+    // Notre utilisateur pourrait créer une liste de Foos, et demander
+    // si elle contient un certain Bar, tant qu'il peut avoir égalité
+    // potentielle entre leurs deux contenus.
     public boolean contains(Object o) {
         for(Optional<Link<E>> cur=Optional.of(root) ; cur.isPresent() ; cur = cur.get().next)
-            if(o == cur.get())
+            if(o.equals(cur.get()))
                 return true;
         return false;      
     }

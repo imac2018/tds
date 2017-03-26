@@ -17,12 +17,12 @@ class Link<E> {
     }
 
 
-    /*
+    /* Ex1.1
     public static void main(String[] args) {
         new Link(13, Optional.of(new Link(144)));
     }
     */
 }
 
-// 2.
-// C'est java fr.umlv.data.Link.
+// Ex1.2.
+// Faire 'java fr.umlv.data.Link' dans le dossier "classes".
