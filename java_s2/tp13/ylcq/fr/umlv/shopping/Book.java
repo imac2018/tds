@@ -2,22 +2,14 @@ package fr.umlv.shopping;
 
 import java.util.Objects;
 
-public class Book {
+public class Book extends ShoppingItem {
 	private final String author;
 	private final String title;
-	private final int price;
 
 	public Book(String author, String title, int price) {
-		if (price < 0) {
-			throw new IllegalArgumentException("pas de prix négatif!");
-		}
-		this.price = price;
+        super(price);
 		this.author = Objects.requireNonNull(author);
 		this.title = Objects.requireNonNull(title);
-	}
-
-	public int getPrice() {
-		return price;
 	}
 
 	@Override
@@ -31,7 +23,7 @@ public class Book {
 			return false;
 		}
 		Book b = (Book) o;
-		return price == b.price && title.equals(b.title) && author.equals(b.author);
+		return getPrice() == b.getPrice() && title.equals(b.title) && author.equals(b.author);
 	}
 
 	@Override
@@ -39,7 +31,7 @@ public class Book {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + author.hashCode();
-		result = prime * result + price;
+		result = prime * result + getPrice();
 		result = prime * result + title.hashCode();
 		return result;
 	}

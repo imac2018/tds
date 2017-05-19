@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ShoppingCart {
-	private final ArrayList<Book> cart;
+	private final ArrayList<ShoppingItem> cart;
 
 	public ShoppingCart() {
 		cart = new ArrayList<>();
 	}
 
-	public void add(Book book) {
-		cart.add(Objects.requireNonNull(book));
+	public void add(ShoppingItem item) {
+		cart.add(Objects.requireNonNull(item));
 	}
 
-	public void remove(Book book) {
-		cart.remove(book);
+	public void remove(ShoppingItem item) {
+		cart.remove(item);
 	}
 
 	public int price() {
 		int sum = 0;
-		for(Book b : cart) {
-			sum += b.getPrice();
+		for(ShoppingItem item : cart) {
+			sum += item.getPrice();
 		}
 		return sum;
 	}
@@ -30,8 +30,8 @@ public class ShoppingCart {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("--- Shopping cart ---\n");
-		for (Book book : cart) {
-			sb.append(book).append("\n");
+		for (ShoppingItem item : cart) {
+			sb.append(item).append("\n");
 		}
 		sb.append("---------------------");
 		return sb.toString();
