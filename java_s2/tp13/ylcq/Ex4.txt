@@ -1,0 +1,15 @@
+1.
+Une idée serait d'ajouter un champ "count" dans ShoppingItem, mais ce n'est
+pas approprié car ça n'a de sens que dans le contexte d'un ShoppingCart.
+On peut très bien imaginer des constantes ShoppingItem, ou des ShoppingItem
+qui existent dans le programme, mais pas contenues dans un ShoppingCart, et
+dancs ces cas ça n'a pas de sens d'avoir un "count".
+
+Du coup, il faut que ShoppingCart puisse associer directement chaque article
+à une valeur entière "count". Il faut aussi que la méthode add() fasse
+un travail supplémentaire de vérification pour incrémenter la valeur "count"
+d'un article au lieu d'ajouter un doublon.
+
+Afin de préserver l'API existante, j'ai choisi d'utiliser une HashMap en
+interne. Pas s^ur que ce soit le meilleur choix au niveau perf ou sémantique,
+mais c'est certainement simple.

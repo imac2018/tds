@@ -3,29 +3,49 @@ package fr.umlv.shopping;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Iterator;
+import java.util.HashMap;
 
 public class ShoppingCart implements Iterable<ShoppingItem> {
 	private final ArrayList<ShoppingItem> cart;
+    // Ex 4
+    private final HashMap<ShoppingItem, Integer> items_counts;
 
 	public ShoppingCart() {
 		cart = new ArrayList<>();
+        items_counts = new HashMap<>();
 	}
 
 	public void add(ShoppingItem item) {
-		cart.add(Objects.requireNonNull(item));
+        Objects.requireNonNull(item);
+        Integer cnt = items_counts.get(item);
+        if(cnt == null) {
+            cart.add(item);
+            items_counts.put(item, 1);
+        } else {
+            items_counts.put(item, cnt+1);
+        }
 	}
 
 	public void remove(ShoppingItem item) {
-		cart.remove(item);
+        Integer cnt = items_counts.get(item);
+        if(cnt == null)
+            return;
+        if(cnt > 1) {
+            items_counts.put(item, cnt-1);
+        } else {
+            items_counts.remove(item, cnt-1);
+    		cart.remove(item);
+        }
 	}
 
-	public int price() {
-		int sum = 0;
-		for(ShoppingItem item : cart) {
-			sum += item.getPrice();
-		}
-		return sum;
-	}
+    public int price() {
+        return cart.stream().mapToInt( (item) -> {
+            int count = items_counts.get(item);
+            return count > 1
+                ? item.getPrice() * count * 5 / 100
+                : item.getPrice();
+        }).sum();
+    }
 
 	@Override
 	public String toString() {
