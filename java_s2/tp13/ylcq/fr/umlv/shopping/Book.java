@@ -35,4 +35,17 @@ public class Book extends ShoppingItem {
 		result = prime * result + title.hashCode();
 		return result;
 	}
+
+    @Override
+    public String toTextFormat() {
+        return 
+            SaverLoader.BOOK_TYPE
+          + SaverLoader.SEPARATOR
+          + getPrice()
+          + SaverLoader.SEPARATOR
+          + title
+          + SaverLoader.SEPARATOR
+          + author
+          ;
+    }
 }

@@ -2,8 +2,9 @@ package fr.umlv.shopping;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Iterator;
 
-public class ShoppingCart {
+public class ShoppingCart implements Iterable<ShoppingItem> {
 	private final ArrayList<ShoppingItem> cart;
 
 	public ShoppingCart() {
@@ -36,4 +37,8 @@ public class ShoppingCart {
 		sb.append("---------------------");
 		return sb.toString();
 	}
+
+    public Iterator<ShoppingItem> iterator() {
+        return cart.iterator();
+    }
 }

@@ -24,6 +24,17 @@ public class PrePaid extends ShoppingItem {
 	@Override
 	public String toString() {
         int value = getPrice();
-		return String.format("Carte cadeau (%d,%02d€), durée: %s semaines)", value/100, value%100, validTime);
+		return String.format("Carte cadeau (%d,%02d€), durée: %s semaines", value/100, value%100, validTime);
 	}
+
+    @Override
+    public String toTextFormat() {
+        return 
+            SaverLoader.PREPAID_TYPE
+          + SaverLoader.SEPARATOR
+          + getPrice()
+          + SaverLoader.SEPARATOR
+          + validTime
+          ;
+    }
 }

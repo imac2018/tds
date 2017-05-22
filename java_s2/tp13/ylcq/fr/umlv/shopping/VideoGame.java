@@ -1,10 +1,11 @@
 package fr.umlv.shopping;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class VideoGame extends ShoppingItem {
 	public enum Console {  // static par défaut.
-		PS3, PS4, XBOX, WII, DS
+        PS3, PS4, XBOX, WII, DS
 	};
 
 	private final String title;
@@ -20,4 +21,17 @@ public class VideoGame extends ShoppingItem {
 	public String toString() {
 		return title + ", sur " + console.name();
 	}
+
+    @Override
+    public String toTextFormat() {
+        return 
+            SaverLoader.VIDEO_GAME_TYPE
+          + SaverLoader.SEPARATOR
+          + getPrice()
+          + SaverLoader.SEPARATOR
+          + title
+          + SaverLoader.SEPARATOR
+          + console
+          ;
+    }
 }
