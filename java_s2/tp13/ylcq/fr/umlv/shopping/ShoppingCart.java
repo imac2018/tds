@@ -41,9 +41,8 @@ public class ShoppingCart implements Iterable<ShoppingItem> {
     public int price() {
         return cart.stream().mapToInt( (item) -> {
             int count = items_counts.get(item);
-            return count > 1
-                ? item.getPrice() * count * 5 / 100
-                : item.getPrice();
+            int total = item.getPrice() * count;
+            return count > 1 ? total - total*5/100 : total;
         }).sum();
     }
 
